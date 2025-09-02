@@ -74,50 +74,52 @@
     </button>
   </nav>
 
-  <!-- Mobile off-canvas menu -->
-  <div id="mobileMenu" class="md:hidden fixed inset-0 z-[100] hidden">
-    <!-- Overlay (click to close) -->
-    <div id="mobileMenuOverlay" class="absolute inset-0 bg-black/40"></div>
+<!-- Mobile off-canvas menu -->
+<div id="mobileMenu" class="md:hidden fixed inset-0 z-[100] hidden">
+  <!-- Dimmed backdrop -->
+  <div id="mobileMenuOverlay" class="absolute inset-0 bg-black/60"></div>
 
-    <!-- Panel -->
-    <div class="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white shadow-xl p-6 flex flex-col">
-      <div class="flex items-center justify-between mb-6">
-        <img src="/assets/images/brand/navbar-logo.png" alt="Logo" class="h-8 w-auto">
-        <button id="mobileMenuClose" class="p-2 -m-2" aria-label="Close menu">
-          <i class="fa-solid fa-xmark text-2xl"></i>
-        </button>
-      </div>
-
-      <nav class="flex-1">
-        <ul class="space-y-4 text-[16px]">
-          <li><a href="/pages/about/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-regular fa-user"></i><span>About</span></a></li>
-          <li><a href="/pages/services/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
-          <li><a href="/pages/portfolio/" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
-          <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
-                 target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
-            <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
-        </ul>
-
-        <a href="/pages/contact/"
-           class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
-           style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
-          <i class="fa-regular fa-envelope"></i> Contact
-        </a>
-      </nav>
-
-      <!-- Socials -->
-      <div class="mt-auto pt-6 border-t flex items-center gap-5 text-xl">
-        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </div>
+  <!-- Drawer panel with solid background -->
+  <aside class="absolute right-0 top-0 h-full w-80 max-w-[85%]
+                 bg-white/95 backdrop-blur-md shadow-2xl border-l border-neutral-200
+                 p-6 flex flex-col text-neutral-900">
+    <div class="flex items-center justify-between mb-6">
+      <img src="/assets/images/brand/navbar-logo.png" alt="Logo" class="h-8 w-auto">
+      <button id="mobileMenuClose" class="p-2 -m-2" aria-label="Close menu">
+        <i class="fa-solid fa-xmark text-2xl"></i>
+      </button>
     </div>
+
+    <nav class="flex-1">
+      <ul class="space-y-4 text-[16px]">
+        <li><a href="/pages/about/" class="flex items-center gap-3 hover:opacity-70">
+          <i class="fa-regular fa-user"></i><span>About</span></a></li>
+        <li><a href="/pages/services/" class="flex items-center gap-3 hover:opacity-70">
+          <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
+        <li><a href="/pages/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+          <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
+        <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+               target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
+          <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+      </ul>
+
+      <a href="/pages/contact/"
+         class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
+         style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
+        <i class="fa-regular fa-envelope"></i> Contact
+      </a>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t flex items-center gap-5 text-xl">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </aside>
+</div>
   </div>
 </header>
 
