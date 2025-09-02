@@ -248,13 +248,29 @@
     </div>
   </section>
 
-  <footer class="border-t">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 flex items-center gap-3">
-      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-5 w-auto">
-      <span>© <span id="year"></span> Velton Gooden Jr. All rights reserved.</span>
+<!-- Footer -->
+<footer class="border-t mt-12">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
+    <div class="flex justify-center mb-4">
+      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
     </div>
-  </footer>
+    <p class="mb-4">
+      © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved. 
+    </p>
+    <div class="flex justify-center gap-5 mb-4 text-lg">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+    <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
+  </div>
+</footer>
 
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
-</body>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
 </html>
