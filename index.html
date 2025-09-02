@@ -1,182 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="VGJ Favicon.png">
-  <title>Velton Gooden Jr – Portfolio Snapshot</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #f2f2f2;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .logo-section {
-      background-color: white;
-      text-align: center;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .logo-section img {
-      max-width: 120px;
-      height: auto;
-    }
-    .header {
-      position: relative;
-      background: linear-gradient(to right, #1db6f2, #1ba1bf);
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
-    .header::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-      pointer-events: none;
-    }
-    .header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-    .header p {
-      margin: 5px 0 0;
-      font-size: 1em;
-      font-style: italic;
-    }
-    .section {
-      background: rgba(255,255,255,0.9);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .section h2 {
-      margin-top: 0;
-      color: #1ba1bf;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-      font-size: 1.5em;
-    }
-    .section p {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-    .highlight {
-      background-color: #fcf8e3;
-      padding: 10px;
-      border-left: 4px solid #f39c12;
-      margin: 10px 0;
-    }
-    .highlight strong {
-      color: #f39c12;
-    }
-    a {
-      color: #1db6f2;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      background-color: #1db6f2;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    blockquote.instagram-media {
-      background: #FFF;
-      border: 0;
-      margin: 1rem auto;
-      max-width: 540px;
-      width: 100%;
-    }
+  <meta charset="utf-8" />
+  <title>Velton Gooden Jr — Digital Content Creation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jamaica-based digital content creator focused on story-first video, simple social systems, and clean execution." />
+  <base href="/" />
 
-    /* Centre Instagram embeds on all devices */
-    .instagram-media {
-      width: 100% !important;
-      max-width: 540px !important;
-      margin: 1rem auto !important;
-      box-sizing: border-box;
-    }
-    .instagram-media iframe {
-      display: block !important;
-      margin: 0 auto !important;
+  <!-- Favicon (SVG) -->
+  <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
+
+  <!-- Fonts, Tailwind, Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Optional site CSS/JS -->
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script defer src="/assets/js/site.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Velton Gooden Jr — Digital Content Creation">
+  <meta property="og:description" content="Story-first video and simple, effective content systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.veltongoodenjr.com/">
+  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/og/default.jpg">
+
+  <style>
+    /* Font stack */
+    body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+
+    /* Utility: render logo.svg in white on coloured backgrounds via mask */
+    .logo-white-mask{
+      width:120px; height:40px; display:inline-block;
+      background:#fff;
+      -webkit-mask:url('/assets/images/brand/logo.svg') no-repeat center / contain;
+              mask:url('/assets/images/brand/logo.svg') no-repeat center / contain;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="logo-section">
-      <img src="https://i.imgur.com/AWPFR4v.png" alt="Velton Gooden Jr Logo">
-    </div>
-    <div class="header">
-      <h1>Mini Portfolio Snapshot</h1>
-      <p>Velton Gooden Jr – Digital Content Creation</p>
-    </div>
+<body class="antialiased text-neutral-800 bg-neutral-50">
+  <!-- Navbar -->
+  <header class="nav">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" aria-label="Home" class="shrink-0">
+        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
+          class="h-8 md:h-9 w-auto object-contain" loading="eager">
+      </a>
+      <ul class="flex items-center gap-6 text-[15px]">
+        <li><a class="hover:opacity-70" href="/pages/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
+        <li><a class="hover:opacity-70" href="/pages/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a>
+        </li>
+        <li><a class="hover:opacity-70" href="/pages/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a>
+        </li>
+        <li><a class="hover:opacity-70" target="_blank" rel="noopener"
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
+            <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
+        <li>
+          <a class="px-4 py-2 rounded-xl text-white flex items-center"
+            style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/pages/contact/">
+            <i class="fa-regular fa-envelope me-2"></i>Contact
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="section">
-      <h2>Yello Media Global – FindYello.com Series (2021)</h2>
-      <p><strong>Role:</strong> Video Editor & Voiceover Artist</p>
-      <p><strong>What I Did:</strong> Edited and recorded the teaser driving traffic to FindYello.com; produced the Caribbean Vibes interview series via video conferencing during COVID.</p>
-      <div class="highlight"><strong>Highlight:</strong> Boosted site visits through engaging teaser content and regional interviews.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CWTUmXFg6Ml/" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CWV2Ok1A1A0/" data-instgrm-version="14"></blockquote>
+  <!-- Hero -->
+  <section class="relative">
+    <div class="absolute inset-0 -z-10" style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);"></div>
+    <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 text-white">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <!-- Example: logo on coloured bg in white (uses mask). Remove if you don’t want it here. -->
+          <!-- <span class="logo-white-mask mb-5 block" aria-hidden="true"></span> -->
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight">Story-first content that helps people decide</h1>
+          <p class="mt-4 text-lg/7 text-white/90">
+            I keep it simple. Useful ideas, tidy execution, and content that works on busy timelines.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="/portfolio/" class="px-5 py-3 bg-white text-neutral-900 rounded-xl flex items-center">
+              <i class="fa-regular fa-images me-2" aria-hidden="true"></i>See portfolio
+            </a>
+            <a href="/contact/" class="px-5 py-3 border border-white/70 rounded-xl flex items-center">
+              <i class="fa-regular fa-paper-plane me-2" aria-hidden="true"></i>Get in touch
+            </a>
+          </div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-2 shadow-lg">
+          <img src="assets/images/content/home-portrait.webp" alt="On set with camera" class="rounded-xl">
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Yello Media Jamaica – Creators Hub Recap & Personal Collab (2022)</h2>
-      <p><strong>Role:</strong> Video Editor & Collaborative Contributor</p>
-      <p><strong>What I Did:</strong> Edited a recap for World Social Media Day showcasing the Yello Creators Hub; co-created a feature post highlighting my role as a contracted creator, driving exceptional attention.</p>
-      <div class="highlight"><strong>Highlight:</strong> Generated unprecedented platform engagement with Creator Hub recap and personal feature collaboration.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CfcmgkNuiwu/" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CdhbQZ7Dtyo/" data-instgrm-version="14"></blockquote>
+  <!-- Value props -->
+  <section class="max-w-6xl mx-auto px-4 py-14">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-6 bg-white rounded-2xl border">
+        <div class="text-2xl"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+        <h3 class="font-semibold text-lg mt-3">Video, neatly packaged</h3>
+        <p class="mt-2 text-[15px] text-neutral-600">Short, clear edits for social and web. Built for speed and repeatability.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl border">
+        <div class="text-2xl"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></div>
+        <h3 class="font-semibold text-lg mt-3">Simple content systems</h3>
+        <p class="mt-2 text-[15px] text-neutral-600">Light frameworks that keep posting on track without heavy software.</p>
+      </div>
+      <div class="p-6 bg-white rounded-2xl border">
+        <div class="text-2xl"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+        <h3 class="font-semibold text-lg mt-3">B2B friendly</h3>
+        <p class="mt-2 text-[15px] text-neutral-600">Story first. Useful proof over fluff. Clean, brand-safe delivery.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Hi-Pro Ace Supercentre – Vox Pop & MSME Roadshow (2025)</h2>
-      <p><strong>Role:</strong> Video Producer & Editor</p>
-      <p><strong>What I Did:</strong> Filmed and published “Hi-Pro Hits the Streets” vox pop; edited a recap of the MSME Business Roadshow at St. Elizabeth Technical High School.</p>
-      <div class="highlight"><strong>Highlight:</strong> Strengthened community engagement via interactive vox pop and educational roadshow coverage.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEyG12my5qf/" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHJo3ObuI91/" data-instgrm-version="14"></blockquote>
+  <!-- Featured links -->
+  <section class="max-w-6xl mx-auto px-4 py-4">
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/portfolio/" class="p-6 bg-white rounded-2xl border hover:shadow block">
+        <div class="text-sm text-neutral-500">Explore</div>
+        <div class="mt-1 font-semibold text-xl flex items-center gap-2">
+          <i class="fa-regular fa-images" aria-hidden="true"></i>Portfolio
+        </div>
+        <p class="mt-2 text-[15px] text-neutral-600">Selected work across videography and content.</p>
+      </a>
+      <a href="/about/" class="p-6 bg-white rounded-2xl border hover:shadow block">
+        <div class="text-sm text-neutral-500">Read</div>
+        <div class="mt-1 font-semibold text-xl flex items-center gap-2">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>About
+        </div>
+        <p class="mt-2 text-[15px] text-neutral-600">Who I am and how I work.</p>
+      </a>
+      <a href="/contact/" class="p-6 bg-white rounded-2xl border hover:shadow block">
+        <div class="text-sm text-neutral-500">Start</div>
+        <div class="mt-1 font-semibold text-xl flex items-center gap-2">
+          <i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact
+        </div>
+        <p class="mt-2 text-[15px] text-neutral-600">Email and a quick way to reach me.</p>
+      </a>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>UWI Mona – Student Leadership & Wellness Series (2025)</h2>
-      <p><strong>Role:</strong> Content Support (via Yello Media)</p>
-      <p><strong>What I Did:</strong> Scripted and edited a reel spotlighting the Math Club President; produced a student wellness discussion video featuring UWI students.</p>
-      <div class="highlight"><strong>Highlight:</strong> Enhanced student engagement by combining leadership profiling with wellness-focused storytelling.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHmDeNppWxK/" data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DE2oOrqxJ-7/" data-instgrm-version="14"></blockquote>
+  <!-- Latest on the blog -->
+  <section class="max-w-6xl mx-auto px-4 py-10" id="latest-blog" hidden>
+    <h2 class="text-2xl font-semibold flex items-center gap-2">
+      <i class="fa-regular fa-newspaper" aria-hidden="true"></i>Latest on the blog
+    </h2>
+    <div class="mt-5 grid md:grid-cols-3 gap-6" id="blog-cards"></div>
+    <div class="mt-6">
+      <a href="/blog/" class="text-[15px] underline">See all posts</a>
     </div>
+  </section>
 
-    <div class="footer">
-      © <span id="year"></span> Velton Gooden Jr. – Digital Content Creation
+  <!-- Footer -->
+  <footer class="border-t mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 flex items-center gap-3">
+      <!-- Example: regular logo on white background -->
+      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-5 w-auto">
+      <span>© <span id="year"></span> Velton Gooden Jr. All rights reserved.</span>
     </div>
-  </div>
+  </footer>
 
-  <script async defer src="//www.instagram.com/embed.js"></script>
   <script>
+    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Latest blog preview (reads /blog/posts.json if present)
+    fetch('/blog/posts.json')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(list => {
+        if (!Array.isArray(list) || list.length === 0) return;
+        list.sort((a,b) => new Date(b.date) - new Date(a.date));
+        const latest = list.slice(0, 3);
+        const wrap = document.getElementById('latest-blog');
+        const cards = document.getElementById('blog-cards');
+        for (const p of latest) {
+          const card = document.createElement('a');
+          card.href = `/blog/post.html?slug=${encodeURIComponent(p.slug)}`;
+          card.className = 'block p-6 bg-white rounded-2xl border hover:shadow';
+          card.innerHTML = `
+            <div class="text-sm text-neutral-500"><i class="fa-regular fa-calendar me-1" aria-hidden="true"></i>${new Date(p.date).toLocaleDateString()}</div>
+            <div class="mt-1 font-semibold text-lg">${p.title}</div>
+            <p class="mt-2 text-[15px] text-neutral-600">${p.excerpt || ''}</p>
+          `;
+          cards.appendChild(card);
+        }
+        wrap.hidden = false;
+      })
+      .catch(() => {/* no blog yet, keep hidden */});
   </script>
 </body>
 </html>
