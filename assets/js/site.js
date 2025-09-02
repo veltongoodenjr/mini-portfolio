@@ -1,13 +1,25 @@
 (function () {
   const btn = document.getElementById('mobileMenuButton');
-  const panel = document.getElementById('mobileMenu');
+  const menu = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('mobileMenuClose');
-  if (!btn || !panel) return;
+  if (!btn || !menu) return;
 
-  const open = () => { panel.classList.remove('hidden'); document.body.classList.add('overflow-hidden'); btn.setAttribute('aria-expanded','true'); closeBtn && closeBtn.focus(); };
-  const close = () => { panel.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); btn.setAttribute('aria-expanded','false'); btn.focus(); };
+  const open = () => {
+    menu.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+    btn.setAttribute('aria-expanded','true');
+    closeBtn && closeBtn.focus();
+  };
+  const close = () => {
+    menu.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+    btn.setAttribute('aria-expanded','false');
+    btn.focus();
+  };
 
   btn.addEventListener('click', open);
   closeBtn && closeBtn.addEventListener('click', close);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !panel.classList.contains('hidden')) close(); });
+  // close when any link inside menu is tapped
+  menu.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.classList.contains('hidden')) close(); });
 })();
