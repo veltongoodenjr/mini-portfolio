@@ -108,31 +108,86 @@
 
 <body class="text-neutral-800">
 
-  <!-- Navbar -->
-  <header class="nav">
-    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" aria-label="Home" class="shrink-0">
-        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
-          class="h-8 md:h-9 w-auto object-contain" loading="eager">
-      </a>
-      <ul class="flex items-center gap-6 text-[15px]">
-        <li><a class="hover:opacity-70" href="/pages/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
-        <li><a class="hover:opacity-70" href="/pages/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a>
-        </li>
-        <li><a class="hover:opacity-70" href="/pages/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a>
-        </li>
-        <li><a class="hover:opacity-70" target="_blank" rel="noopener"
-            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
-            <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
-        <li>
-          <a class="px-4 py-2 rounded-xl text-white flex items-center"
-            style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/pages/contact/">
-            <i class="fa-regular fa-envelope me-2"></i>Contact
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+<!-- Navbar -->
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" aria-label="Home" class="shrink-0">
+      <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
+           class="h-8 md:h-9 w-auto object-contain" loading="eager">
+    </a>
+
+    <!-- Desktop menu -->
+    <ul class="hidden md:flex items-center gap-6 text-[15px]">
+      <li><a class="hover:opacity-70" href="/pages/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
+      <li><a class="hover:opacity-70" href="/pages/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a></li>
+      <li><a class="hover:opacity-70" href="/pages/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
+      <li><a class="hover:opacity-70" target="_blank" rel="noopener"
+             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
+             <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
+      <li>
+        <a class="px-4 py-2 rounded-xl text-white flex items-center"
+           style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/pages/contact/">
+          <i class="fa-regular fa-envelope me-2"></i>Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button id="mobileMenuButton"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-neutral-200"
+            aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <i class="fa-solid fa-bars text-lg"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile off-canvas menu -->
+  <div id="mobileMenu" class="md:hidden fixed inset-0 z-50 hidden">
+    <!-- Overlay (click to close) -->
+    <div id="mobileMenuOverlay" class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Panel -->
+    <div class="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-white shadow-xl p-6 flex flex-col">
+      <div class="flex items-center justify-between mb-6">
+        <img src="/assets/images/brand/navbar-logo.png" alt="Logo" class="h-8 w-auto">
+        <button id="mobileMenuClose" class="p-2 -m-2" aria-label="Close menu">
+          <i class="fa-solid fa-xmark text-2xl"></i>
+        </button>
+      </div>
+
+      <nav class="flex-1">
+        <ul class="space-y-4 text-[16px]">
+          <li><a href="/pages/about/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-regular fa-user"></i><span>About</span></a></li>
+          <li><a href="/pages/services/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
+          <li><a href="/pages/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
+          <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+                 target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+        </ul>
+
+        <a href="/pages/contact/"
+           class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
+           style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
+          <i class="fa-regular fa-envelope"></i> Contact
+        </a>
+      </nav>
+
+      <!-- Socials -->
+      <div class="mt-auto pt-6 border-t flex items-center gap-5 text-xl">
+        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
 
   <!-- Hero -->
   <section class="hero">
