@@ -2,18 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Services — Velton Gooden Jr</title>
+  <title>Velton Gooden Jr — Digital Content Creation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Videography, social content systems, event coverage, and consulting. Simple, effective delivery for busy teams." />
+  <meta name="description" content="Jamaica-based digital content creator focused on story-first video, simple social systems, and clean execution." />
+  <base href="/" />
+
+  <!-- Favicon (SVG) -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
+
+  <!-- Fonts, Tailwind, Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="/assets/css/site.css" />
-  <style>body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}</style>
+
+  <!-- Optional site CSS/JS -->
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script defer src="/assets/js/site.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Velton Gooden Jr — Digital Content Creation">
+  <meta property="og:description" content="Story-first video and simple, effective content systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.veltongoodenjr.com/">
+  <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/og/default.jpg">
+
+  <style>
+    /* Font stack */
+    body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+
+    /* Utility: render logo.svg in white on coloured backgrounds via mask */
+    .logo-white-mask{
+      width:120px; height:40px; display:inline-block;
+      background:#fff;
+      -webkit-mask:url('/assets/images/brand/logo.svg') no-repeat center / contain;
+              mask:url('/assets/images/brand/logo.svg') no-repeat center / contain;
+    }
+  </style>
 </head>
 <body class="antialiased text-neutral-800 bg-neutral-50">
-
   <!-- Navbar -->
   <header class="nav">
     <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
