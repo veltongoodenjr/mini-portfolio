@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <title>Services — Velton Gooden Jr</title>
@@ -13,97 +12,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-
   <style>
-    :root {
-      --brand1: #1db6f2;
-      --brand2: #1ba1bf;
-    }
-
-    body {
-      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #f6f7f9;
-    }
+    :root { --brand1:#1db6f2; --brand2:#1ba1bf; }
+    body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#f6f7f9;}
 
     /* Nav */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, .9);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #e5e7eb
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      color: #fff;
-      background: linear-gradient(90deg, var(--brand1), var(--brand2))
-    }
-
-    .hero-mask {
-      background: rgba(255, 255, 255, .1);
-      border-radius: 18px;
-      padding: 10px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, .12)
-    }
-
-    .portrait {
-      display: block;
-      width: 100%;
-      max-width: 420px;
-      margin: 0 auto;
-      border-radius: 24px;
-      object-fit: cover;
-      /* soft notch shape */
-      -webkit-mask: radial-gradient(140% 100% at 50% 0%, #000 60%, transparent 61%) top/100% 24px no-repeat,
-        linear-gradient(#000 0 0) center/100% calc(100% - 24px) no-repeat;
-      mask: radial-gradient(140% 100% at 50% 0%, #000 60%, transparent 61%) top/100% 24px no-repeat,
-        linear-gradient(#000 0 0) center/100% calc(100% - 24px) no-repeat;
-    }
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
 
     /* Sections */
-    .card {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 28px 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .04)
-    }
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:28px 20px;box-shadow:0 8px 20px rgba(0,0,0,.04)}
+    .card h2{margin:0 0 12px;text-align:center;font-weight:700;letter-spacing:-.01em;font-size:clamp(20px,2.2vw,24px);color:var(--brand2);border-bottom:2px solid #eef2f7;padding-bottom:10px}
 
-    .card h2 {
-      margin: 0 0 12px;
-      text-align: center;
-      font-weight: 700;
-      letter-spacing: -.01em;
-      font-size: clamp(20px, 2.2vw, 24px);
-      color: var(--brand2);
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 10px
-    }
+    .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #e5e7eb;border-radius:999px;padding:8px 12px;background:#fff}
 
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid #e5e7eb;
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: #fff
+    .text-gradient{
+      background:linear-gradient(90deg,#1db6f2,#1ba1bf);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text; color:transparent; font-weight:600;
     }
-
-    .text-gradient {
-      background: linear-gradient(90deg, #1db6f2, #1ba1bf);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      /* fallback */
-      font-weight: 600;
   </style>
-
-
 </head>
 
 <body class="text-neutral-800">
@@ -113,20 +40,18 @@
     <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <a href="/" aria-label="Home" class="shrink-0">
         <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
-          class="h-8 md:h-9 w-auto object-contain" loading="eager">
+             class="h-8 md:h-9 w-auto object-contain" loading="eager">
       </a>
       <ul class="flex items-center gap-6 text-[15px]">
         <li><a class="hover:opacity-70" href="/pages/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
-        <li><a class="hover:opacity-70" href="/pages/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a>
-        </li>
-        <li><a class="hover:opacity-70" href="/pages/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a>
-        </li>
+        <li><a class="hover:opacity-70" href="/pages/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a></li>
+        <li><a class="hover:opacity-70" href="/pages/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
         <li><a class="hover:opacity-70" target="_blank" rel="noopener"
-            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
-            <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
+               href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
+               <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
         <li>
           <a class="px-4 py-2 rounded-xl text-white flex items-center"
-            style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/pages/contact/">
+             style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/pages/contact/">
             <i class="fa-regular fa-envelope me-2"></i>Contact
           </a>
         </li>
@@ -139,76 +64,143 @@
     <div class="absolute inset-0 -z-10" style="background:linear-gradient(90deg,#1db6f2,#1ba1bf)"></div>
     <div class="max-w-6xl mx-auto px-4 py-14 md:py-20 text-white">
       <h1 class="text-4xl md:text-5xl font-bold leading-tight">Services</h1>
-      <p class="mt-4 text-lg/7 text-white/90 max-w-2xl">Videography, social content systems, and simple consulting that keeps your marketing moving.</p>
+      <p class="mt-4 text-lg/7 text-white/90 max-w-2xl">
+        Brand-forward content: full video production, social systems, and practical strategy to keep your marketing moving.
+      </p>
     </div>
   </section>
 
-  <!-- Services grid -->
+  <!-- Services grid (focused on content + brand strategy) -->
   <section class="max-w-6xl mx-auto px-4 py-12">
     <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Full video production -->
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-2xl"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
-        <h2 class="mt-3 text-xl font-semibold">Video production</h2>
-        <p class="mt-2 text-[15px] text-neutral-600">Short-form edits, interview pieces, and simple brand video. Efficient pre-pro, tidy shoots, and clean post.</p>
+        <h2 class="mt-3 text-xl font-semibold">Full video production</h2>
+        <p class="mt-2 text-[15px] text-neutral-600">
+          Concept-to-delivery for social and web: interviews, brand stories, reels/shorts, event highlights.
+        </p>
         <ul class="mt-3 text-[15px] list-disc ps-5 text-neutral-700">
-          <li>Planning and light scripts</li>
-          <li>Shoot and audio capture</li>
-          <li>Edit, captions, safe brand delivery</li>
+          <li>Light concepts & shotlists</li>
+          <li>Shooting & on-location audio</li>
+          <li>Editing, mix, captions, brand-safe exports</li>
         </ul>
         <div class="mt-4">
-          <a href="/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
+          <a href="/pages/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
             <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Request a quote
           </a>
         </div>
       </div>
 
+      <!-- Social content systems -->
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-2xl"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></div>
         <h2 class="mt-3 text-xl font-semibold">Social content systems</h2>
-        <p class="mt-2 text-[15px] text-neutral-600">Light frameworks you can run in-house. Templates, a simple calendar, and repeatable formats.</p>
+        <p class="mt-2 text-[15px] text-neutral-600">
+          A lightweight engine you can run in-house: pillars, formats, calendars, and templates.
+        </p>
         <ul class="mt-3 text-[15px] list-disc ps-5 text-neutral-700">
-          <li>Content pillars and format library</li>
-          <li>Caption and asset templates</li>
+          <li>Content pillars & format library</li>
+          <li>Caption & asset templates</li>
           <li>Quick reporting setup</li>
         </ul>
         <div class="mt-4">
-          <a href="/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
+          <a href="/pages/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
             <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Talk through your goals
           </a>
         </div>
       </div>
 
+      <!-- Event coverage -->
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-2xl"><i class="fa-regular fa-calendar-check" aria-hidden="true"></i></div>
         <h2 class="mt-3 text-xl font-semibold">Event coverage</h2>
-        <p class="mt-2 text-[15px] text-neutral-600">On-site filming with quick-turn highlights for social and web. Useful for launches and campus or community events.</p>
+        <p class="mt-2 text-[15px] text-neutral-600">
+          On-site capture with quick-turn highlights and vertical cuts for social momentum.
+        </p>
         <ul class="mt-3 text-[15px] list-disc ps-5 text-neutral-700">
-          <li>Run-and-gun capture</li>
-          <li>Highlight reel and selects</li>
-          <li>Captioned social cuts</li>
+          <li>Run-and-gun filming</li>
+          <li>Highlight reel + selects</li>
+          <li>Captioned social edits</li>
         </ul>
         <div class="mt-4">
-          <a href="/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
+          <a href="/pages/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
             <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Check date availability
           </a>
         </div>
       </div>
 
+      <!-- Brand & campaign strategy -->
       <div class="p-6 bg-white rounded-2xl border">
-        <div class="text-2xl"><i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i></div>
-        <h2 class="mt-3 text-xl font-semibold">Consulting and training</h2>
-        <p class="mt-2 text-[15px] text-neutral-600">Audits, playbooks, and short training for teams that want to improve output without heavy tooling.</p>
+        <div class="text-2xl"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+        <h2 class="mt-3 text-xl font-semibold">Brand & campaign strategy</h2>
+        <p class="mt-2 text-[15px] text-neutral-600">
+          Clarify message, align creative, and plan the rollout so content works where it matters.
+        </p>
         <ul class="mt-3 text-[15px] list-disc ps-5 text-neutral-700">
-          <li>Channel and content audit</li>
-          <li>90-day plan and playbook</li>
-          <li>Hands-on editor coaching</li>
+          <li>Messaging, voice & narrative</li>
+          <li>Campaign scaffolds & deliverable maps</li>
+          <li>Creative direction & asset lists</li>
         </ul>
         <div class="mt-4">
-          <a href="/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
-            <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Book a short consult
+          <a href="/pages/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
+            <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Start a brief
           </a>
         </div>
       </div>
+
+<!-- Website & landing pages -->
+<div class="p-6 bg-white rounded-2xl border">
+  <div class="text-2xl"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+  <h2 class="mt-3 text-xl font-semibold">Website & landing pages</h2>
+
+  <p class="mt-2 text-[15px] text-neutral-600">
+    Default launch is <strong>static HTML on GitHub Pages</strong> — fast, secure, and low-overhead for a quick first go-live. 
+    I handle updates via Git for the fastest initial turnaround.
+  </p>
+  <p class="mt-2 text-[15px] text-neutral-600">
+    If you want to update without me, handover is simple — but you’ll need someone comfortable with <strong>HTML/CSS</strong>.
+    That’s the trade-off (and the main bottleneck) with a lightweight static setup.
+  </p>
+  <p class="mt-2 text-[15px] text-neutral-600">
+    For larger projects that need non-technical editing, roles/permissions, or dynamic content, we’ll scope a <strong>CMS build</strong> 
+    (e.g., WordPress) on the hosting platform that fits your stack. That’s a fuller engagement with more orchestration.
+  </p>
+
+  <ul class="mt-3 text-[15px] list-disc ps-5 text-neutral-700">
+    <li>Design & build (static HTML on GitHub Pages by default)</li>
+    <li>SEO basics & performance hygiene</li>
+    <li>GA4, pixels & lead tracking</li>
+    <li>Optional: CMS build & migration (e.g., WordPress)</li>
+  </ul>
+
+  <div class="mt-4">
+    <a href="/pages/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
+      <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Discuss your page
+    </a>
+  </div>
+</div>
+
+      <!-- Ads & measurement -->
+      <div class="p-6 bg-white rounded-2xl border">
+        <div class="text-2xl"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+        <h2 class="mt-3 text-xl font-semibold">Ads & measurement</h2>
+        <p class="mt-2 text-[15px] text-neutral-600">
+          Practical performance: Google Ads (Search & Display), tracking, and tidy reports.
+        </p>
+        <ul class="mt-3 text-[15px] list-disc ps-5 text-neutral-700">
+          <li>Campaign setup & creative specs</li>
+          <li>GA4 events, UTM discipline, dashboards</li>
+          <li>Iterate on what the numbers say</li>
+        </ul>
+        <div class="mt-4">
+          <a href="/pages/contact/" class="inline-flex items-center gap-2 text-[15px] underline">
+            <i class="fa-regular fa-paper-plane" aria-hidden="true"></i>Plan a test
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -224,17 +216,17 @@
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-xl"><i class="fa-solid fa-list-check" aria-hidden="true"></i></div>
         <h3 class="mt-2 font-semibold">Light plan</h3>
-        <p class="mt-1 text-[15px] text-neutral-600">A simple plan and deliverables list. Clear next steps.</p>
+        <p class="mt-1 text-[15px] text-neutral-600">Simple plan and deliverables. Clear next steps.</p>
       </div>
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-xl"><i class="fa-solid fa-clapperboard" aria-hidden="true"></i></div>
         <h3 class="mt-2 font-semibold">Production</h3>
-        <p class="mt-1 text-[15px] text-neutral-600">Shoot and edit. Review links and tidy revisions.</p>
+        <p class="mt-1 text-[15px] text-neutral-600">Shoot & edit. Review links and tidy revisions.</p>
       </div>
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-xl"><i class="fa-regular fa-circle-check" aria-hidden="true"></i></div>
         <h3 class="mt-2 font-semibold">Delivery</h3>
-        <p class="mt-1 text-[15px] text-neutral-600">Final files and a simple system you can keep running.</p>
+        <p class="mt-1 text-[15px] text-neutral-600">Final files and a system you can keep running.</p>
       </div>
     </div>
   </section>
@@ -248,7 +240,7 @@
           <p class="mt-1 text-white/90">Send a note with your timeline and the main outcome you want.</p>
         </div>
         <div class="mt-4 md:mt-0">
-          <a href="/contact/" class="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-3 rounded-xl">
+          <a href="/pages/contact/" class="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-3 rounded-xl">
             <i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact
           </a>
         </div>
@@ -263,6 +255,6 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear()</script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
