@@ -109,3 +109,34 @@ a { text-underline-offset: 2px; }
   animation: drift 16s ease-in-out infinite;
 }
 @keyframes drift { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+
+/* Container for the letters */
+.wave {
+  display: inline-flex;
+  gap: 1px;
+  will-change: transform;
+}
+
+/* Each letter animates with smooth, looping up↔down motion */
+.wave span {
+  display: inline-block;
+  animation: waveFlow 2s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+
+/* Clean single-direction keyframe */
+@keyframes waveFlow {
+  from { transform: translateY(6px); }  /* gentle dip */
+  to   { transform: translateY(-6px); } /* gentle rise */
+}
+
+/* Phase offsets for the wave */
+.wave span:nth-child(1) { animation-delay: 0s; }
+.wave span:nth-child(2) { animation-delay: 0.15s; }
+.wave span:nth-child(3) { animation-delay: 0.3s; }
+.wave span:nth-child(4) { animation-delay: 0.45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wave span { animation: none; }
+}
