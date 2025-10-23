@@ -6,6 +6,10 @@
   <title>Velton Gooden Jr – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+ <!-- Optional site CSS/JS -->
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script defer src="/assets/js/site.js"></script>
+
   <!-- Favicon + Fonts + Tailwind + Font Awesome -->
   <link rel="icon" type="image/svg+xml" href="/assets/images/brand/favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -221,6 +225,7 @@
 
 <body>
 
+<<<<<<< HEAD
   <!-- Navbar -->
   <header class="nav">
     <div class="wrap nav-inner">
@@ -229,21 +234,54 @@
           class="h-8 md:h-9 w-auto object-contain" loading="eager" fetchpriority="high">
       </a>
       <ul class="nav-links">
-        <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"
+        <li><a class="hover:opacity-70" href="/about"><i class="fa-regular fa-user me-2"
               aria-hidden="true"></i>About</a></li>
-        <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-briefcase me-2"
+        <li><a class="hover:opacity-70" href="//services/"><i class="fa-solid fa-briefcase me-2"
               aria-hidden="true"></i>Services</a></li>
-        <li><a class="hover:opacity-70" href="/portfolio/"><i class="fa-regular fa-images me-2"
+        <li><a class="hover:opacity-70" href="//portfolio/"><i class="fa-regular fa-images me-2"
               aria-hidden="true"></i>Portfolio</a></li>
         <li><a class="hover:opacity-70"
             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
             target="_blank" rel="noopener">
             <i class="fa-regular fa-newspaper me-2" aria-hidden="true"></i>Newsletter</a></li>
-        <li><a class="btn-grad" href="/contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact</a>
+        <li><a class="btn-grad" href="//contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact</a>
         </li>
       </ul>
     </div>
   </header>
+=======
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/" aria-label="Home" class="shrink-0">
+      <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
+           class="h-8 md:h-9 w-auto object-contain" loading="eager">
+    </a>
+
+    <!-- Desktop -->
+    <ul class="hidden md:flex items-center gap-6 text-[15px]">
+      <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
+      <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a></li>
+      <li><a class="hover:opacity-70" href="/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
+      <li><a class="hover:opacity-70" target="_blank" rel="noopener"
+             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
+             <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
+      <li>
+        <a class="px-4 py-2 rounded-xl text-white flex items-center"
+           style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/contact/">
+          <i class="fa-regular fa-envelope me-2"></i>Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button id="mobileMenuButton"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white text-neutral-900 border border-neutral-200 shadow-sm"
+            aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <i class="fa-solid fa-bars text-lg"></i>
+    </button>
+  </nav>
+</header>
+>>>>>>> 4079c7efe9f3088a1ddb43169543969de6069d81
 
   <!-- Hero (consistent with home) -->
   <section class="hero">
@@ -418,10 +456,69 @@
   </div>
 </div>
 
+<!-- Footer -->
+<footer class="border-t mt-12">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
+    <div class="flex justify-center mb-4">
+      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
+    </div>
+    <p class="mb-4">
+      © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved. 
+    </p>
+    <div class="flex justify-center gap-5 mb-4 text-lg">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+    <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
+  </div>
+</footer>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
-    <script async defer src="https://www.instagram.com/embed.js"></script>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<!-- Mobile menu (full-screen white sheet) -->
+<div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white text-neutral-900">
+  <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
+    <i class="fa-solid fa-xmark text-2xl"></i>
+  </button>
+
+  <nav class="h-full flex flex-col pt-16 px-6">
+    <ul class="space-y-4 text-[16px]">
+      <li><a href="/about/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-user"></i><span>About</span></a></li>
+      <li><a href="/services/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
+      <li><a href="/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
+      <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+             target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+    </ul>
+
+    <a href="/contact/"
+       class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
+       style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
+      <i class="fa-regular fa-envelope"></i> Contact
+    </a>
+
+    <div class="mt-auto pt-8 pb-6 border-t flex items-center gap-5 text-xl">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<script async defer src="https://www.instagram.com/embed.js"></script>
+
 </body>
 
 </html>
