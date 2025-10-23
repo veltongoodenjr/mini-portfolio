@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <title>Velton Gooden Jr — Digital Content Creation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Jamaica-based digital content creator focused on story-first video, simple social systems, and clean execution." />
+  <meta name="description" content="Brand-forward content: full video production, social systems, and practical strategy." />
   <base href="/" />
 
   <!-- Favicon (SVG) -->
@@ -21,32 +21,91 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Velton Gooden Jr — Digital Content Creation">
-  <meta property="og:description" content="Story-first video and simple, effective content systems.">
+  <meta property="og:description" content="Story-first content, clean systems, and brand-safe delivery.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/">
   <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/og/default.jpg">
 
   <style>
-    /* Font stack */
     body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    /* Sticky nav (match subpages) */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
 
     /* Utility: render logo.svg in white on coloured backgrounds via mask */
     .logo-white-mask{
-      width:120px; height:40px; display:inline-block;
-      background:#fff;
-      -webkit-mask:url('/assets/images/brand/logo.svg') no-repeat center / contain;
-              mask:url('/assets/images/brand/logo.svg') no-repeat center / contain;
+      width:120px;height:40px;display:inline-block;background:#fff;
+      -webkit-mask:url('/assets/images/brand/logo.svg') no-repeat center/contain;
+              mask:url('/assets/images/brand/logo.svg') no-repeat center/contain;
     }
   </style>
 </head>
 <body class="antialiased text-neutral-800 bg-neutral-50">
-  <!-- Navbar -->
-  <header class="nav">
-    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="/" aria-label="Home" class="shrink-0">
-        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
-          class="h-8 md:h-9 w-auto object-contain" loading="eager">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+  <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <a href="/" aria-label="Home" class="shrink-0">
+      <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
+           class="h-8 md:h-9 w-auto object-contain" loading="eager">
+    </a>
+
+    <!-- Desktop -->
+    <ul class="hidden md:flex items-center gap-6 text-[15px]">
+      <li><a class="hover:opacity-70" href="/pages/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
+      <li><a class="hover:opacity-70" href="/pages/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a></li>
+      <li><a class="hover:opacity-70" href="/pages/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
+      <li><a class="hover:opacity-70" target="_blank" rel="noopener"
+             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
+             <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
+      <li>
+        <a class="px-4 py-2 rounded-xl text-white flex items-center"
+           style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/pages/contact/">
+          <i class="fa-regular fa-envelope me-2"></i>Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button id="mobileMenuButton"
+            class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white text-neutral-900 border border-neutral-200 shadow-sm"
+            aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+      <i class="fa-solid fa-bars text-lg"></i>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile menu (full-screen) -->
+<div id="mobileMenu" class="md:hidden fixed inset-0 z-[100] hidden bg-white text-neutral-900">
+  <!-- Close -->
+  <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
+    <i class="fa-solid fa-xmark text-2xl"></i>
+  </button>
+
+  <!-- Links -->
+  <nav class="h-full flex flex-col pt-16 px-6">
+    <ul class="space-y-4 text-[16px]">
+      <li><a href="/pages/about/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-user"></i><span>About</span></a></li>
+      <li><a href="/pages/services/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
+      <li><a href="/pages/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
+      <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+             target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+    </ul>
+
+    <a href="/pages/contact/"
+       class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
+       style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
+      <i class="fa-regular fa-envelope"></i> Contact
+    </a>
+
+    <!-- Socials -->
+    <div class="mt-auto pt-8 pb-6 border-t flex items-center gap-5 text-xl">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
       </a>
+<<<<<<< HEAD
       <ul class="flex items-center gap-6 text-[15px]">
         <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
         <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a>
@@ -65,6 +124,16 @@
       </ul>
     </nav>
   </header>
+=======
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </nav>
+</div>
+  </div>
+</header>
+>>>>>>> 4079c7efe9f3088a1ddb43169543969de6069d81
 
   <!-- Hero -->
   <section class="relative">
@@ -72,45 +141,43 @@
     <div class="max-w-6xl mx-auto px-4 py-16 md:py-24 text-white">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <!-- Example: logo on coloured bg in white (uses mask). Remove if you don’t want it here. -->
-          <!-- <span class="logo-white-mask mb-5 block" aria-hidden="true"></span> -->
-          <h1 class="text-4xl md:text-5xl font-bold leading-tight">Story-first content that helps people decide</h1>
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight">Where storytelling meets digital strategy</h1>
           <p class="mt-4 text-lg/7 text-white/90">
-            I keep it simple. Useful ideas, tidy execution, and content that works on busy timelines.
+           Connecting ideas to execution with video, campaigns, and systems that scale.
           </p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="/portfolio/" class="px-5 py-3 bg-white text-neutral-900 rounded-xl flex items-center">
+            <a href="/pages/portfolio/" class="px-5 py-3 bg-white text-neutral-900 rounded-xl flex items-center">
               <i class="fa-regular fa-images me-2" aria-hidden="true"></i>See portfolio
             </a>
-            <a href="/contact/" class="px-5 py-3 border border-white/70 rounded-xl flex items-center">
+            <a href="/pages/contact/" class="px-5 py-3 border border-white/70 rounded-xl flex items-center">
               <i class="fa-regular fa-paper-plane me-2" aria-hidden="true"></i>Get in touch
             </a>
           </div>
         </div>
         <div class="bg-white/10 rounded-2xl p-2 shadow-lg">
-          <img src="assets/images/content/home-portrait.webp" alt="On set with camera" class="rounded-xl">
+          <img src="assets/images/content/home-portrait.webp" alt="Velton Gooden Jr portrait" class="rounded-xl">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Value props -->
+  <!-- Value props (aligned with Services) -->
   <section class="max-w-6xl mx-auto px-4 py-14">
     <div class="grid md:grid-cols-3 gap-6">
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-2xl"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
-        <h3 class="font-semibold text-lg mt-3">Video, neatly packaged</h3>
-        <p class="mt-2 text-[15px] text-neutral-600">Short, clear edits for social and web. Built for speed and repeatability.</p>
+        <h3 class="font-semibold text-lg mt-3">Full video production</h3>
+        <p class="mt-2 text-[15px] text-neutral-600">Concept → shoot → edit. Short-form, interviews, event highlights.</p>
       </div>
       <div class="p-6 bg-white rounded-2xl border">
         <div class="text-2xl"><i class="fa-solid fa-sitemap" aria-hidden="true"></i></div>
-        <h3 class="font-semibold text-lg mt-3">Simple content systems</h3>
-        <p class="mt-2 text-[15px] text-neutral-600">Light frameworks that keep posting on track without heavy software.</p>
+        <h3 class="font-semibold text-lg mt-3">Social content systems</h3>
+        <p class="mt-2 text-[15px] text-neutral-600">Pillars, formats, calendars, and templates you can run in-house.</p>
       </div>
       <div class="p-6 bg-white rounded-2xl border">
-        <div class="text-2xl"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
-        <h3 class="font-semibold text-lg mt-3">B2B friendly</h3>
-        <p class="mt-2 text-[15px] text-neutral-600">Story first. Useful proof over fluff. Clean, brand-safe delivery.</p>
+        <div class="text-2xl"><i class="fa-solid fa-bullseye" aria-hidden="true"></i></div>
+        <h3 class="font-semibold text-lg mt-3">Brand & campaign strategy</h3>
+        <p class="mt-2 text-[15px] text-neutral-600">Clear messaging, aligned creative, and practical rollouts.</p>
       </div>
     </div>
   </section>
@@ -118,21 +185,21 @@
   <!-- Featured links -->
   <section class="max-w-6xl mx-auto px-4 py-4">
     <div class="grid md:grid-cols-3 gap-6">
-      <a href="/portfolio/" class="p-6 bg-white rounded-2xl border hover:shadow block">
+      <a href="/pages/portfolio/" class="p-6 bg-white rounded-2xl border hover:shadow block">
         <div class="text-sm text-neutral-500">Explore</div>
         <div class="mt-1 font-semibold text-xl flex items-center gap-2">
           <i class="fa-regular fa-images" aria-hidden="true"></i>Portfolio
         </div>
-        <p class="mt-2 text-[15px] text-neutral-600">Selected work across videography and content.</p>
+        <p class="mt-2 text-[15px] text-neutral-600">Selected work across video and content.</p>
       </a>
-      <a href="/about/" class="p-6 bg-white rounded-2xl border hover:shadow block">
+      <a href="/pages/about/" class="p-6 bg-white rounded-2xl border hover:shadow block">
         <div class="text-sm text-neutral-500">Read</div>
         <div class="mt-1 font-semibold text-xl flex items-center gap-2">
           <i class="fa-regular fa-user" aria-hidden="true"></i>About
         </div>
         <p class="mt-2 text-[15px] text-neutral-600">Who I am and how I work.</p>
       </a>
-      <a href="/contact/" class="p-6 bg-white rounded-2xl border hover:shadow block">
+      <a href="/pages/contact/" class="p-6 bg-white rounded-2xl border hover:shadow block">
         <div class="text-sm text-neutral-500">Start</div>
         <div class="mt-1 font-semibold text-xl flex items-center gap-2">
           <i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact
@@ -142,53 +209,91 @@
     </div>
   </section>
 
-  <!-- Latest on the blog -->
-  <section class="max-w-6xl mx-auto px-4 py-10" id="latest-blog" hidden>
-    <h2 class="text-2xl font-semibold flex items-center gap-2">
-      <i class="fa-regular fa-newspaper" aria-hidden="true"></i>Latest on the blog
-    </h2>
-    <div class="mt-5 grid md:grid-cols-3 gap-6" id="blog-cards"></div>
-    <div class="mt-6">
-      <a href="/blog/" class="text-[15px] underline">See all posts</a>
+  <!-- Newsletter CTA -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="p-6 md:p-8 rounded-2xl text-white" style="background:linear-gradient(90deg,#1db6f2,#1ba1bf)">
+      <div class="md:flex items-center justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+            <i class="fa-regular fa-newspaper" aria-hidden="true"></i>Creator’s Current — Newsletter
+          </h2>
+          <p class="mt-2 text-white/90 text-[15px] max-w-2xl">
+            Short, practical notes on storytelling, content systems, and why certain pieces connect.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <a class="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-3 rounded-xl"
+             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+             target="_blank" rel="noopener">
+            <i class="fa-regular fa-newspaper" aria-hidden="true"></i>Read on LinkedIn
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t mt-12">
-    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 flex items-center gap-3">
-      <!-- Example: regular logo on white background -->
-      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-5 w-auto">
-      <span>© <span id="year"></span> Velton Gooden Jr. All rights reserved.</span>
+<!-- Footer -->
+<footer class="border-t mt-12">
+  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
+    <div class="flex justify-center mb-4">
+      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
     </div>
-  </footer>
+    <p class="mb-4">
+      © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved. 
+    </p>
+    <div class="flex justify-center gap-5 mb-4 text-lg">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+    <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
+  </div>
+</footer>
 
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
   <script>
-    // Year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Latest blog preview (reads /blog/posts.json if present)
-    fetch('/blog/posts.json')
-      .then(r => r.ok ? r.json() : Promise.reject())
-      .then(list => {
-        if (!Array.isArray(list) || list.length === 0) return;
-        list.sort((a,b) => new Date(b.date) - new Date(a.date));
-        const latest = list.slice(0, 3);
-        const wrap = document.getElementById('latest-blog');
-        const cards = document.getElementById('blog-cards');
-        for (const p of latest) {
-          const card = document.createElement('a');
-          card.href = `/blog/post.html?slug=${encodeURIComponent(p.slug)}`;
-          card.className = 'block p-6 bg-white rounded-2xl border hover:shadow';
-          card.innerHTML = `
-            <div class="text-sm text-neutral-500"><i class="fa-regular fa-calendar me-1" aria-hidden="true"></i>${new Date(p.date).toLocaleDateString()}</div>
-            <div class="mt-1 font-semibold text-lg">${p.title}</div>
-            <p class="mt-2 text-[15px] text-neutral-600">${p.excerpt || ''}</p>
-          `;
-          cards.appendChild(card);
-        }
-        wrap.hidden = false;
-      })
-      .catch(() => {/* no blog yet, keep hidden */});
   </script>
+
+<!-- Mobile menu (full-screen white sheet) -->
+<div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white text-neutral-900">
+  <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
+    <i class="fa-solid fa-xmark text-2xl"></i>
+  </button>
+
+  <nav class="h-full flex flex-col pt-16 px-6">
+    <ul class="space-y-4 text-[16px]">
+      <li><a href="/pages/about/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-user"></i><span>About</span></a></li>
+      <li><a href="/pages/services/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
+      <li><a href="/pages/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
+      <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+             target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+    </ul>
+
+    <a href="/pages/contact/"
+       class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
+       style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
+      <i class="fa-regular fa-envelope"></i> Contact
+    </a>
+
+    <div class="mt-auto pt-8 pb-6 border-t flex items-center gap-5 text-xl">
+      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+    </div>
+  </nav>
+</div>
 </body>
 </html>
