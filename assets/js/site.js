@@ -23,3 +23,30 @@
   menu.addEventListener('click', (e) => { if (e.target.closest('a')) close(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.classList.contains('hidden')) close(); });
 })();
+
+// ---- Active nav highlighter ----
+(function () {
+  try {
+    const current = new URL(window.location.href);
+    // normalize pathname to always end with "/"
+    const here = current.pathname.replace(/\/?$/, "/");
+
+    document.querySelectorAll("header.nav .nav-links a[href]").forEach(a => {
+      const href = a.getAttribute("href");
+      // skip external
+      if (!href || /^https?:\/\//i.test(href)) return;
+
+      // normalize link path to end with "/"
+      const linkURL = new URL(href, window.location.origin);
+      const linkPath = linkURL.pathname.replace(/\/?$/, "/");
+
+      // exact match (e.g., "/services/" matches "/services/")
+      if (linkPath === here) {
+        a.classList.add("nav-active");
+        a.setAttribute("aria-current", "page");
+      }
+    });
+  } catch (e) {
+    // no-op
+  }
+})();

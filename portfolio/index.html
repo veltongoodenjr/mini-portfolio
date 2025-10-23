@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Velton Gooden Jr – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
- <!-- Optional site CSS/JS -->
+  <!-- Optional site CSS/JS -->
   <link rel="stylesheet" href="/assets/css/site.css">
   <script defer src="/assets/js/site.js"></script>
 
@@ -15,9 +14,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-  <!-- Optional site CSS -->
-  <link rel="stylesheet" href="/assets/css/site.css">
 
   <style>
     :root {
@@ -35,87 +31,47 @@
     }
 
     /* ---------- Layout shells ---------- */
-    .wrap {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
 
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 24px 16px;
-    }
-
-    /* ---------- Navbar (kept consistent) ---------- */
+    /* ---------- Navbar ---------- */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       background: rgba(255, 255, 255, .9);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid #e5e7eb;
     }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 16px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      font-size: 15px;
-    }
-
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; font-size: 15px; }
     .btn-grad {
       background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 12px;
+      color: #fff; padding: 8px 16px; border-radius: 12px;
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+    }
+    /* tiny utility for icon spacing if needed */
+    .me-2 { margin-right: .5rem; }
+
+    /* Active link style */
+    .nav-active{
+      background: rgba(27,161,191,.10);
+      color: #0e5e6f;
+      padding: 8px 12px;
+      border-radius: 10px;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      text-decoration: none;
     }
+    .nav-active:hover{ opacity:.95; }
 
-    /* ---------- Hero (polished) ---------- */
-    .hero {
-      position: relative;
-      color: #fff;
-      background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
-    }
-
-    .hero-inner {
-      padding: 56px 0 64px;
-      text-align: center;
-    }
-
-    .eyebrow {
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .9);
-    }
-
+    /* ---------- Hero ---------- */
+    .hero { position: relative; color: #fff; background: linear-gradient(90deg, var(--brand-1), var(--brand-2)); }
+    .hero-inner { padding: 56px 0 64px; text-align: center; }
+    .eyebrow { font-weight: 600; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.9); }
     .hero h1 {
-      margin: 10px auto 10px;
-      font-weight: 700;
-      font-size: clamp(28px, 4.5vw, 40px);
-      letter-spacing: -0.01em;
+      margin: 10px auto 10px; font-weight: 700; font-size: clamp(28px, 4.5vw, 40px); letter-spacing: -0.01em;
     }
-
-    .hero p.lead {
-      margin: 0 auto;
-      max-width: 720px;
-      color: rgba(255, 255, 255, .92);
-      font-weight: 500;
-      line-height: 1.6;
-    }
+    .hero p.lead { margin: 0 auto; max-width: 720px; color: rgba(255,255,255,.92); font-weight: 500; line-height: 1.6; }
 
     /* ---------- Sections ---------- */
     .section {
@@ -123,133 +79,46 @@
       border-radius: 12px;
       padding: 28px 20px;
       margin: 22px auto;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+      box-shadow: 0 8px 20px rgba(0,0,0,.06);
     }
-
     .section h2 {
-      margin: 0 0 14px;
-      text-align: center;
-      font-weight: 700;
-      letter-spacing: -.01em;
-      font-size: clamp(20px, 2.2vw, 24px);
-      color: var(--brand-2);
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 10px;
+      margin: 0 0 14px; text-align: center; font-weight: 700; letter-spacing: -.01em;
+      font-size: clamp(20px, 2.2vw, 24px); color: var(--brand-2);
+      border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;
     }
-
-    .section p,
-    .section .highlight,
-    .kcr-thumb,
-    .kcr-link {
-      max-width: var(--embed-width);
-      margin-left: auto;
-      margin-right: auto;
-      text-align: left;
-      line-height: 1.7;
-      font-weight: 500;
+    .section p, .section .highlight, .kcr-thumb, .kcr-link {
+      max-width: var(--embed-width); margin-left: auto; margin-right: auto; text-align: left;
+      line-height: 1.7; font-weight: 500;
     }
-
-    .section p strong {
-      font-weight: 700;
-    }
-
-    .highlight {
-      background: #fcf8e3;
-      border-left: 4px solid #f39c12;
-      padding: 12px 14px;
-      margin: 12px auto;
-    }
-
-    .highlight strong {
-      color: #f39c12;
-    }
-
-    a {
-      color: var(--brand-1);
-      text-decoration: none
-    }
-
-    a:hover {
-      text-decoration: underline
-    }
+    .section p strong { font-weight: 700; }
+    .highlight { background: #fcf8e3; border-left: 4px solid #f39c12; padding: 12px 14px; margin: 12px auto; }
+    .highlight strong { color: #f39c12; }
 
     /* ---------- Instagram embeds ---------- */
     blockquote.instagram-media {
-      background: #fff;
-      border: 0;
-      margin: 1rem auto;
-      max-width: var(--embed-width);
-      width: 100%;
+      background: #fff; border: 0; margin: 1rem auto; max-width: var(--embed-width); width: 100%;
     }
-
-    .instagram-media {
-      width: 100% !important;
-      max-width: var(--embed-width) !important;
-      margin: 1rem auto !important;
-      box-sizing: border-box;
-    }
-
-    .instagram-media iframe {
-      display: block !important;
-      margin: 0 auto !important;
-    }
+    .instagram-media { width: 100% !important; max-width: var(--embed-width) !important; margin: 1rem auto !important; box-sizing: border-box; }
+    .instagram-media iframe { display: block !important; margin: 0 auto !important; }
 
     /* ---------- Footer ---------- */
     .footer {
-      background: var(--brand-1);
-      color: #fff;
-      text-align: center;
-      padding: 16px;
-      border-radius: 12px;
-      margin: 24px auto 48px;
-      max-width: 860px;
+      background: var(--brand-1); color: #fff; text-align: center; padding: 16px;
+      border-radius: 12px; margin: 24px auto 48px; max-width: 860px;
     }
 
-    /* ---------- Responsive padding tweaks ---------- */
+    /* ---------- Responsive tweaks ---------- */
     @media (min-width:768px) {
-      .container {
-        padding: 32px 20px;
-      }
-
-      .section {
-        padding: 32px 24px;
-        margin: 26px auto;
-      }
-
-      .hero-inner {
-        padding: 72px 0 80px;
-      }
+      .container { padding: 32px 20px; }
+      .section { padding: 32px 24px; margin: 26px auto; }
+      .hero-inner { padding: 72px 0 80px; }
     }
   </style>
 </head>
 
 <body>
 
-<<<<<<< HEAD
-  <!-- Navbar -->
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a href="/" aria-label="Home" class="shrink-0">
-        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
-          class="h-8 md:h-9 w-auto object-contain" loading="eager" fetchpriority="high">
-      </a>
-      <ul class="nav-links">
-        <li><a class="hover:opacity-70" href="/about"><i class="fa-regular fa-user me-2"
-              aria-hidden="true"></i>About</a></li>
-        <li><a class="hover:opacity-70" href="//services/"><i class="fa-solid fa-briefcase me-2"
-              aria-hidden="true"></i>Services</a></li>
-        <li><a class="hover:opacity-70" href="//portfolio/"><i class="fa-regular fa-images me-2"
-              aria-hidden="true"></i>Portfolio</a></li>
-        <li><a class="hover:opacity-70"
-            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
-            target="_blank" rel="noopener">
-            <i class="fa-regular fa-newspaper me-2" aria-hidden="true"></i>Newsletter</a></li>
-        <li><a class="btn-grad" href="//contact/"><i class="fa-regular fa-envelope" aria-hidden="true"></i>Contact</a>
-        </li>
-      </ul>
-    </div>
-  </header>
-=======
+<!-- Navbar -->
 <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
   <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
     <a href="/" aria-label="Home" class="shrink-0">
@@ -259,9 +128,11 @@
 
     <!-- Desktop -->
     <ul class="hidden md:flex items-center gap-6 text-[15px]">
+      <li><a class="hover:opacity-70" href="/"><i class="fa-solid fa-house me-2"></i>Home</a></li>
       <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
-      <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-briefcase me-2"></i>Services</a></li>
-      <li><a class="hover:opacity-70" href="/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
+      <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-puzzle-piece me-2"></i>Services</a></li>
+      <li><a class="hover:opacity-70 text-sky-700 font-semibold" href="/portfolio/">
+        <i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
       <li><a class="hover:opacity-70" target="_blank" rel="noopener"
              href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
              <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
@@ -281,9 +152,8 @@
     </button>
   </nav>
 </header>
->>>>>>> 4079c7efe9f3088a1ddb43169543969de6069d81
 
-  <!-- Hero (consistent with home) -->
+  <!-- Hero -->
   <section class="hero">
     <div class="wrap hero-inner">
       <div class="eyebrow">Selected work</div>
@@ -295,193 +165,85 @@
   <div class="container">
 
     <div class="section">
-      <h2><i class="fa-solid fa-clapperboard" aria-hidden="true"></i> Yello Media Global – Caribbean Vibes Series (2021)
-      </h2>
+      <h2><i class="fa-solid fa-clapperboard" aria-hidden="true"></i> Yello Media Global – Caribbean Vibes Series (2021)</h2>
       <p><strong>Role:</strong> Digital Brand Officer (Intern) at Yello Media</p>
       <p><strong>What I Did:</strong> Edited and recorded the teaser driving traffic to FindYello.com; produced the
         Caribbean Vibes interview series via video conferencing during COVID.</p>
       <div class="highlight"><strong>Highlight:</strong> Boosted site visits through engaging teaser content and
         regional interviews.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CWTUmXFg6Ml/"
-        data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CWV2Ok1A1A0/"
-        data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CWTUmXFg6Ml/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CWV2Ok1A1A0/" data-instgrm-version="14"></blockquote>
     </div>
 
     <div class="section">
-      <h2><i class="fa-solid fa-clapperboard" aria-hidden="true"></i> Yello Media Jamaica – Creators Hub Recap &amp;
-        Personal Collab (2022)</h2>
+      <h2><i class="fa-solid fa-clapperboard" aria-hidden="true"></i> Yello Media Jamaica – Creators Hub Recap &amp; Personal Collab (2022)</h2>
       <p><strong>Role:</strong> Social Content &amp; Community Creator at Yello Media</p>
-      <p><strong>What I Did:</strong> Edited a recap for World Social Media Day showcasing the Yello Creators Hub;
-        co-created a feature post highlighting my role as a contracted creator, driving exceptional attention.</p>
-      <div class="highlight"><strong>Highlight:</strong> Generated unprecedented platform engagement with Creator Hub
-        recap and personal feature collaboration.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CfcmgkNuiwu/"
-        data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CdhbQZ7Dtyo/"
-        data-instgrm-version="14"></blockquote>
+      <p><strong>What I Did:</strong> Edited a recap for World Social Media Day showcasing the Yello Creators Hub; co-created a feature post highlighting my role as a contracted creator, driving exceptional attention.</p>
+      <div class="highlight"><strong>Highlight:</strong> Generated unprecedented platform engagement with Creator Hub recap and personal feature collaboration.</div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CfcmgkNuiwu/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/tv/CdhbQZ7Dtyo/" data-instgrm-version="14"></blockquote>
     </div>
 
     <div class="section">
-      <h2><i class="fa-solid fa-video" aria-hidden="true"></i> Hi-Pro Ace Supercentre – Vox Pop &amp; MSME Roadshow
-        (2025)</h2>
+      <h2><i class="fa-solid fa-video" aria-hidden="true"></i> Hi-Pro Ace Supercentre – Vox Pop &amp; MSME Roadshow (2025)</h2>
       <p><strong>Role:</strong> Digital Fulfilment Specialist - Social Media at Yello Media</p>
       <p><strong>What I Did:</strong> Filmed and published “Hi-Pro Hits the Streets” vox pop; edited a recap of the MSME
         Business Roadshow at St. Elizabeth Technical High School.</p>
-      <div class="highlight"><strong>Highlight:</strong> Strengthened community engagement via interactive vox pop and
-        educational roadshow coverage.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEyG12my5qf/"
-        data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHJo3ObuI91/"
-        data-instgrm-version="14"></blockquote>
+      <div class="highlight"><strong>Highlight:</strong> Strengthened community engagement via interactive vox pop and educational roadshow coverage.</div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DEyG12my5qf/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHJo3ObuI91/" data-instgrm-version="14"></blockquote>
     </div>
 
     <div class="section">
-      <h2><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i> UWI Mona – Student Leadership &amp; Wellness
-        Series (2025)</h2>
+      <h2><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i> UWI Mona – Student Leadership &amp; Wellness Series (2025)</h2>
       <p><strong>Role:</strong> Digital Fulfilment Specialist - Social Media at Yello Media</p>
       <p><strong>What I Did:</strong> Filmed and edited a reel spotlighting the Math Club President; produced a student
         wellness discussion video featuring UWI students.</p>
-      <div class="highlight"><strong>Highlight:</strong> Enhanced student engagement by combining leadership profiling
-        with wellness-focused storytelling.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHmDeNppWxK/"
-        data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DE2oOrqxJ-7/"
-        data-instgrm-version="14"></blockquote>
+      <div class="highlight"><strong>Highlight:</strong> Enhanced student engagement by combining leadership profiling with wellness-focused storytelling.</div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DHmDeNppWxK/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DE2oOrqxJ-7/" data-instgrm-version="14"></blockquote>
     </div>
 
     <!-- The Jamaica Pegasus Hotel (2025) -->
     <div class="section">
       <h2><i class="fa-solid fa-hotel" aria-hidden="true"></i> The Jamaica Pegasus Hotel (2025)</h2>
       <p><strong>Role:</strong> Digital Marketing &amp; PR Executive at The Courtleigh Hospitality Group</p>
-      <p><strong>What I Did:</strong> Shot and edited on-site event content with a short turnaround to maintain the
-        window of relevance; captured on-the-fly moments (including visits from noteworthy guests); delivered short-form
+      <p><strong>What I Did:</strong> Shot and edited on-site event content; captured on-the-fly moments (including visits from noteworthy guests); delivered short-form
         reels optimized for Instagram.</p>
-      <div class="highlight"><strong>Highlight:</strong> Sustained event momentum and brand visibility through timely
-        reels and VIP coverage produced on a relevance-focused cadence.</div>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DLbPqxGt-tO/"
-        data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DLajrEFRoNG/"
-        data-instgrm-version="14"></blockquote>
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM3NjqWghEc/"
-        data-instgrm-version="14"></blockquote>
+      <div class="highlight"><strong>Highlight:</strong> Sustained event momentum and brand visibility through timely reels and VIP coverage produced on a relevance-focused cadence.</div>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DLbPqxGt-tO/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DLajrEFRoNG/" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM3NjqWghEc/" data-instgrm-version="14"></blockquote>
     </div>
 
-    <!-- Kingston City Run (2025—present) — compact & centered -->
-    <style>
-      /* Scoped to this block */
-      .kcr-section .kcr-wrap {
-        max-width: 460px;
-        margin: 0 auto;
-      }
-
-      @media (min-width:768px) {
-        .kcr-section .kcr-wrap {
-          max-width: 480px;
-        }
-      }
-
-      .kcr-section h2 {
-        text-align: center;
-      }
-
-      .kcr-section .kcr-text {
-        line-height: 1.7;
-        text-align: left;
-        margin: 8px 0;
-      }
-
-      .kcr-section .highlight {
-        margin: 12px auto;
-      }
-
-      .kcr-section .kcr-link {
-        text-align: center;
-        margin: 8px auto 0;
-      }
-
-      .kcr-section .kcr-thumb {
-        display: block;
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 10px auto 0;
-      }
-    </style>
-
-<!-- Kingston City Run (2025—present) — compact & centered (image is clickable with hover effect) -->
-<style>
-  /* Scoped to this block */
-  .kcr-section .kcr-wrap { max-width: 460px; margin: 0 auto; }
-  @media (min-width:768px){ .kcr-section .kcr-wrap { max-width: 480px; } }
-  .kcr-section h2 { text-align: center; }
-  .kcr-section .kcr-text { line-height: 1.7; text-align: left; margin: 8px 0; }
-  .kcr-section .highlight { margin: 12px auto; }
-  .kcr-section .kcr-link { text-align: center; margin: 8px auto 0; }
-
-  /* Hyperlinked image styling */
-  .kcr-section .kcr-thumb-link {
-    display:block;
-    border-radius:8px;
-    overflow:hidden;
-    margin:10px auto 0;
-    transition:all .25s ease;
-  }
-  .kcr-section .kcr-thumb-link img {
-    display:block;
-    width:100%;
-    height:auto;
-  }
-  .kcr-section .kcr-thumb-link:hover {
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
-    transform:translateY(-2px);
-  }
-</style>
-
-<div class="section kcr-section">
-  <h2><i class="fa-solid fa-person-running" aria-hidden="true"></i> Kingston City Run (2025—present)</h2>
-  <div class="kcr-wrap">
-    <p class="kcr-text"><strong>Role:</strong> Lead for Rebrand &amp; Website; Ongoing Site &amp; Performance Management</p>
-    <p class="kcr-text"><strong>What I Did:</strong> Led the rebranding exercise and designed/built the entire website end-to-end; continue to manage site content and updates; connected Google Analytics (GA4) with meaningful events; planned and run Google Ads campaigns (Search &amp; Display) to promote the run.</p>
-    <div class="highlight"><strong>Highlight:</strong> Unified the brand and performance stack—new identity, fast site, analytics visibility, and always-on campaigns—to drive awareness and registrations ahead of race day.</div>
-    <p class="kcr-link">
-      <a href="https://www.kingstoncityrunja.com" target="_blank" rel="noopener">
-        <i class="fa-solid fa-up-right-from-square" aria-hidden="true"></i> Visit kingstoncityrunja.com
-      </a>
-    </p>
-
-    <!-- Image now clickable with hover -->
-    <a class="kcr-thumb-link" href="https://www.kingstoncityrunja.com" target="_blank" rel="noopener" aria-label="Open kingstoncityrunja.com">
-      <img src="/assets/images/content/kcr-website.jpeg" alt="Kingston City Run website preview">
-    </a>
   </div>
-</div>
 
-<!-- Footer -->
-<footer class="border-t mt-12">
-  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
-    <div class="flex justify-center mb-4">
-      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
+  <!-- Footer -->
+  <footer class="border-t mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
+      <div class="flex justify-center mb-4">
+        <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
+      </div>
+      <p class="mb-4">
+        © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved. 
+      </p>
+      <div class="flex justify-center gap-5 mb-4 text-lg">
+        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+      <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
     </div>
-    <p class="mb-4">
-      © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved. 
-    </p>
-    <div class="flex justify-center gap-5 mb-4 text-lg">
-      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-    </div>
-    <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
-<!-- Mobile menu (full-screen white sheet) -->
+ <!-- Mobile menu (full-screen white sheet) -->
 <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white text-neutral-900">
   <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
     <i class="fa-solid fa-xmark text-2xl"></i>
@@ -489,11 +251,13 @@
 
   <nav class="h-full flex flex-col pt-16 px-6">
     <ul class="space-y-4 text-[16px]">
+      <li><a href="/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-solid fa-house"></i><span>Home</span></a></li>
       <li><a href="/about/" class="flex items-center gap-3 hover:opacity-70">
         <i class="fa-regular fa-user"></i><span>About</span></a></li>
       <li><a href="/services/" class="flex items-center gap-3 hover:opacity-70">
-        <i class="fa-solid fa-briefcase"></i><span>Services</span></a></li>
-      <li><a href="/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+        <i class="fa-solid fa-puzzle-piece"></i><span>Services</span></a></li>
+      <li><a href="/portfolio/" class="flex items-center gap-3 hover:opacity-70 text-sky-700 font-semibold">
         <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
       <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
              target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
@@ -517,8 +281,7 @@
   </nav>
 </div>
 
-<script async defer src="https://www.instagram.com/embed.js"></script>
-
+  <!-- Instagram embed loader -->
+  <script async defer src="https://www.instagram.com/embed.js"></script>
 </body>
-
 </html>
