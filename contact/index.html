@@ -592,12 +592,11 @@
     });
   </script>
 
-  <script>
-// === CONFIG ===
+<script>
+// === CONFIG: paste your live values ===
 const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyxsaDyG-CFpZwzQc3js1EX_esmF2-KntacXS3CGjtiD6k3pqDHv2krDhD46xTcwnla/exec";
 const API_SECRET   = "vGjR_2025_s3cr3t_1ba1bf";
 
-// === FORM HANDLER ===
 (function(){
   const form = document.getElementById('inquiryForm');
   const btn  = document.getElementById('inquirySubmit');
@@ -611,55 +610,49 @@ const API_SECRET   = "vGjR_2025_s3cr3t_1ba1bf";
     const hp = form.querySelector('[name="_gotcha"]');
     if (hp && hp.value) return;
 
-    // Basic requireds (HTML required already covers this)
+    // Basic guards
     if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) return;
-    if (!document.getElementById('consent').checked) return;
+    const consentEl = document.getElementById('consent');
+    if (consentEl && !consentEl.checked) return;
 
     const payload = {
       name:     form.name.value.trim(),
       email:    form.email.value.trim(),
       phone:    form.phone.value.trim(),
-      whatsapp: form.whatsapp.checked,
+      whatsapp: form.whatsapp.checked ? '1' : '',
       service:  form.service.value,
       timeline: form.timeline.value,
       message:  form.message.value.trim(),
       links:    form.links.value.trim(),
       source:   form.querySelector('[name="source"]')?.value || 'Website Contact',
       subject:  form.querySelector('[name="subject"]')?.value || 'New inquiry via veltongoodenjr.com',
+      page:     location.href,             // context: coming from Contact page
       _secret:  API_SECRET
     };
 
     // UI: loading
-    if (btn){
-      btn.disabled = true;
-      btn.classList.add('is-loading');
-    }
-    msg.textContent = '';
+    if (btn){ btn.disabled = true; btn.classList.add('is-loading'); }
+    if (msg){ msg.textContent=''; }
 
     try {
+      // IMPORTANT: URL-encoded "simple request" to avoid CORS preflight
       const res = await fetch(GAS_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type':'application/json', 'Accept':'application/json' },
-        body: JSON.stringify(payload)
+        headers: { 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: new URLSearchParams(payload).toString()
       });
       const data = await res.json().catch(()=> ({}));
 
       if (res.ok && data.ok) {
         form.reset();
-        msg.textContent = 'Thanks — your message has been sent.';
-        msg.style.color = '#065f46';
+        if (msg){ msg.textContent = 'Thanks — your message has been sent.'; msg.style.color = '#065f46'; }
       } else {
-        msg.textContent = data?.error ? `Error: ${data.error}` : 'Sorry, there was a problem. Please try again.';
-        msg.style.color = '#7f1d1d';
+        if (msg){ msg.textContent = data?.error ? `Error: ${data.error}` : 'Sorry, there was a problem. Please try again.'; msg.style.color = '#7f1d1d'; }
       }
-    } catch(err){
-      msg.textContent = 'Network error. Please try again.';
-      msg.style.color = '#7f1d1d';
+    } catch (err) {
+      if (msg){ msg.textContent = 'Network error. Please try again.'; msg.style.color = '#7f1d1d'; }
     } finally {
-      if (btn){
-        btn.disabled = false;
-        btn.classList.remove('is-loading');
-      }
+      if (btn){ btn.disabled = false; btn.classList.remove('is-loading'); }
     }
   });
 })();
