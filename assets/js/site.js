@@ -24,29 +24,47 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.classList.contains('hidden')) close(); });
 })();
 
-// ---- Active nav highlighter ----
-(function () {
-  try {
-    const current = new URL(window.location.href);
-    // normalize pathname to always end with "/"
-    const here = current.pathname.replace(/\/?$/, "/");
+// ===== Smooth scroll for same-page anchors =====
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if (id.length > 1 && document.querySelector(id)) {
+      e.preventDefault();
+      document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
 
-    document.querySelectorAll("header.nav .nav-links a[href]").forEach(a => {
-      const href = a.getAttribute("href");
-      // skip external
-      if (!href || /^https?:\/\//i.test(href)) return;
+// ===== Reveal on scroll (sections/cards with .reveal) =====
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){ en.target.classList.add('in-view'); io.unobserve(en.target); }
+  });
+},{ rootMargin: '0px 0px -10% 0px', threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
 
-      // normalize link path to end with "/"
-      const linkURL = new URL(href, window.location.origin);
-      const linkPath = linkURL.pathname.replace(/\/?$/, "/");
+// ===== Button loading states (forms) =====
+// Add data-loading on submit buttons: data-loading="Sending…"
+document.querySelectorAll('form').forEach(form=>{
+  form.addEventListener('submit', ()=>{
+    const btn = form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    btn.dataset.originalText = btn.innerHTML;
+    const label = btn.getAttribute('data-loading') || 'Sending…';
+    btn.classList.add('is-loading');
+    btn.innerHTML = `<i class="fa-regular fa-paper-plane"></i> ${label}`;
+    // Optionally disable all inputs
+    form.querySelectorAll('input, select, textarea, button').forEach(el=> el.disabled = true);
+  }, { once:true });
+});
 
-      // exact match (e.g., "/services/" matches "/services/")
-      if (linkPath === here) {
-        a.classList.add("nav-active");
-        a.setAttribute("aria-current", "page");
-      }
-    });
-  } catch (e) {
-    // no-op
-  }
-})();
+// ===== Optional: add skeletons to iframes/images with [data-skel] =====
+document.querySelectorAll('[data-skel]').forEach(el=>{
+  el.classList.add('skeleton','skel-rect');
+  const onLoad = ()=> el.classList.remove('skeleton','skel-rect');
+  el.addEventListener('load', onLoad, { once:true });
+});
+
+// ===== Nav underline hover (apply class to desktop UL) =====
+const navUl = document.querySelector('header nav ul');
+if (navUl) navUl.classList.add('nav-anim');

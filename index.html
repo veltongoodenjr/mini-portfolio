@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <title>Velton Gooden Jr — Digital Content Creation</title>
@@ -15,265 +16,296 @@
   <script defer src="/assets/js/site.js"></script>
 
   <meta property="og:title" content="Velton Gooden Jr — Digital Content Creation">
-  <meta property="og:description" content="Stories that move. Story-first content and simple systems for brands that care.">
+  <meta property="og:description"
+    content="Stories that move. Story-first content and simple systems for brands that care.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.veltongoodenjr.com/">
   <meta property="og:image" content="https://www.veltongoodenjr.com/assets/images/og/default.jpg">
 
   <style>
-    body{font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif
+    }
 
     /* Animated gradient backdrop for hero */
     .hero-bg {
-      position: absolute; inset: 0; z-index: -2;
-      background: linear-gradient(120deg,#1db6f2,#1ba1bf,#0e7490);
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(120deg, #1db6f2, #1ba1bf, #0e7490);
       background-size: 200% 200%;
-      animation: gradientMove 18s ease-in-out infinite;
+      animation: gradientMove 8s ease-in-out infinite;
     }
+
     .hero-overlay {
-      position: absolute; inset: 0; z-index: -1;
-      background: rgba(0,0,0,0.25);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.25);
     }
+
     @keyframes gradientMove {
-      0% { background-position: 0% 50% }
-      50% { background-position: 100% 50% }
-      100% { background-position: 0% 50% }
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .hero-bg { animation: none }
+      .hero-bg {
+        animation: none
+      }
     }
   </style>
 </head>
 
 <body class="antialiased text-neutral-800 bg-neutral-50">
 
-<!-- Header -->
-<header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-  <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-    <a href="/" aria-label="Home" class="shrink-0">
-      <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo" class="h-8 md:h-9 w-auto object-contain" loading="eager">
-    </a>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
+    <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+      <a href="/" aria-label="Home" class="shrink-0">
+        <img src="/assets/images/brand/navbar-logo.png" alt="Velton Gooden Jr logo"
+          class="h-8 md:h-9 w-auto object-contain" loading="eager">
+      </a>
 
-    <!-- Desktop Navbar -->
-    <ul class="hidden md:flex items-center gap-6 text-[15px]">
-      <li><a class="hover:opacity-70 text-sky-700 font-semibold" href="/"><i class="fa-solid fa-house me-2"></i>Home</a></li>
+      <!-- Desktop Navbar -->
+      <ul class="hidden md:flex items-center gap-6 text-[15px] nav-anim">
+        <li><a class="hover:opacity-70 text-sky-700 font-semibold" href="/"><i
+              class="fa-solid fa-house me-2"></i>Home</a></li>
+        <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
+        <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-puzzle-piece me-2"></i>Services</a></li>
+        <li><a class="hover:opacity-70" href="/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
+        <li><a class="hover:opacity-70" target="_blank" rel="noopener"
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
+            <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
+        <li>
+          <a class="px-4 py-2 rounded-xl text-white flex items-center font-semibold cta-pulse"
+            style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/contact/">
+            <i class="fa-regular fa-envelope me-2"></i>Contact
+          </a>
+        </li>
+      </ul>
 
-      <li><a class="hover:opacity-70" href="/about/"><i class="fa-regular fa-user me-2"></i>About</a></li>
-      <li><a class="hover:opacity-70" href="/services/"><i class="fa-solid fa-puzzle-piece me-2"></i>Services</a></li>
-      <li><a class="hover:opacity-70" href="/portfolio/"><i class="fa-regular fa-images me-2"></i>Portfolio</a></li>
-      <li><a class="hover:opacity-70" target="_blank" rel="noopener"
-             href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402">
-             <i class="fa-regular fa-newspaper me-2"></i>Newsletter</a></li>
-      <li>
-        <a class="px-4 py-2 rounded-xl text-white flex items-center"
-           style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);" href="/contact/">
-          <i class="fa-regular fa-envelope me-2"></i>Contact
-        </a>
-      </li>
-    </ul>
+      <!-- Mobile Hamburger -->
+      <button id="mobileMenuButton"
+        class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white text-neutral-900 border border-neutral-200 shadow-sm"
+        aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </nav>
+  </header>
 
-    <!-- Mobile Hamburger -->
-    <button id="mobileMenuButton"
-      class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg bg-white text-neutral-900 border border-neutral-200 shadow-sm"
-      aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
-      <i class="fa-solid fa-bars text-lg"></i>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white text-neutral-900">
+    <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
+      <i class="fa-solid fa-xmark text-2xl"></i>
     </button>
-  </nav>
-</header>
 
-<!-- Mobile Menu -->
-<div id="mobileMenu" class="fixed inset-0 z-[9999] hidden bg-white text-neutral-900">
-  <button id="mobileMenuClose" class="absolute top-4 right-4 p-2" aria-label="Close menu">
-    <i class="fa-solid fa-xmark text-2xl"></i>
-  </button>
+    <nav class="h-full flex flex-col pt-16 px-6">
+      <ul class="space-y-4 text-[16px]">
+        <li><a href="/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-solid fa-house"></i><span>Home</span></a></li>
+        <li><a href="/about/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-regular fa-user"></i><span>About</span></a></li>
+        <li><a href="/services/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-solid fa-puzzle-piece"></i><span>Services</span></a></li>
+        <li><a href="/portfolio/" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
+        <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+            target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
+            <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
+      </ul>
 
-  <nav class="h-full flex flex-col pt-16 px-6">
-    <ul class="space-y-4 text-[16px]">
-      <li><a href="/" class="flex items-center gap-3 hover:opacity-70">
-        <i class="fa-solid fa-house"></i><span>Home</span></a></li>
-      <li><a href="/about/" class="flex items-center gap-3 hover:opacity-70">
-        <i class="fa-regular fa-user"></i><span>About</span></a></li>
-      <li><a href="/services/" class="flex items-center gap-3 hover:opacity-70">
-        <i class="fa-solid fa-puzzle-piece"></i><span>Services</span></a></li>
-      <li><a href="/portfolio/" class="flex items-center gap-3 hover:opacity-70">
-        <i class="fa-regular fa-images"></i><span>Portfolio</span></a></li>
-      <li><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
-             target="_blank" rel="noopener" class="flex items-center gap-3 hover:opacity-70">
-        <i class="fa-regular fa-newspaper"></i><span>Newsletter</span></a></li>
-    </ul>
-
-    <a href="/contact/"
-       class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
-       style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
-      <i class="fa-regular fa-envelope"></i> Contact
-    </a>
-
-    <div class="mt-auto pt-8 pb-6 border-t flex items-center gap-5 text-xl">
-      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
-        <i class="fa-brands fa-instagram"></i>
+      <a href="/contact/"
+        class="mt-6 inline-flex w-full items-center justify-center gap-2 px-4 py-3 rounded-xl text-white"
+        style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
+        <i class="fa-regular fa-envelope"></i> Contact
       </a>
-      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-    </div>
-  </nav>
-</div>
 
-<!-- Hero -->
-<section class="relative overflow-hidden">
-  <!-- Animated gradient -->
-  <div class="hero-bg"></div>
-  <div class="hero-overlay"></div>
+      <div class="mt-auto pt-8 pb-6 border-t flex items-center gap-5 text-xl">
+        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"
+          class="hover:text-pink-600">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"
+          class="hover:text-sky-700">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+    </nav>
+  </div>
 
-  <!-- If/when you add a muted showreel later, swap the two divs above for:
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <!-- Animated gradient -->
+    <div class="hero-bg"></div>
+
+    <!-- If/when you add a muted showreel later, swap the two divs above for:
   <video class="absolute inset-0 w-full h-full object-cover -z-2" autoplay muted loop playsinline poster="/assets/images/content/hero-poster.jpg">
     <source src="/assets/video/hero-showreel.mp4" type="video/mp4">
   </video>
   <div class="hero-overlay"></div>
   -->
 
-  <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 text-white">
-    <div class="max-w-2xl">
-      <h1 class="text-4xl md:text-5xl font-bold leading-tight">Stories that move.</h1>
-      <p class="mt-4 text-lg/7 text-white/90">
-        Video, voice, and creative systems that help ideas travel further and connect more deeply.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/portfolio/" class="px-5 py-3 bg-white text-neutral-900 rounded-xl flex items-center">
-          <i class="fa-regular fa-images me-2" aria-hidden="true"></i>See my work
-        </a>
-        <a href="/contact/" class="px-5 py-3 border border-white/70 rounded-xl flex items-center">
-          <i class="fa-regular fa-paper-plane me-2" aria-hidden="true"></i>Start a project
-        </a>
+    <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 text-white">
+      <div class="max-w-2xl reveal">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+          Stories that <span class="wave">
+            <span>m</span><span>o</span><span>v</span><span>e</span>
+          </span>.
+        </h1>
+
+
+        <p class="mt-4 text-lg/7 text-white/90">
+          Video, voice, and creative systems that help ideas travel further and connect more deeply.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/portfolio/" class="px-5 py-3 bg-white text-neutral-900 rounded-xl flex items-center btn-white">
+            <i class="fa-regular fa-images me-2" aria-hidden="true"></i>See my work
+          </a>
+          <a href="/contact/" class="px-5 py-3 border border-white/70 rounded-xl flex items-center btn-ghost">
+            <i class="fa-regular fa-paper-plane me-2" aria-hidden="true"></i>Start a project
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Core Offerings -->
-<section class="max-w-6xl mx-auto px-4 py-14">
-  <h2 class="text-3xl font-semibold text-center mb-10">How I help brands tell their story</h2>
+  <!-- Core Offerings -->
+  <section class="max-w-6xl mx-auto px-4 py-14">
+    <h2 class="text-3xl font-semibold text-center mb-10 reveal">How I help brands tell their story</h2>
 
-  <div class="grid md:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-3 gap-6">
 
-    <!-- Video Production -->
-    <div class="p-6 bg-white rounded-2xl border text-center">
-      <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
-        <i class="fa-solid fa-video"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-4">Video Production</h3>
-      <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Brand & Campaign Films</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Short-form Videos</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Full Production Workflow</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Clarity & Visual Balance</span>
-      </div>
-      <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-        End-to-end production for brands, campaigns, and creative projects that look polished yet feel authentic.
-      </p>
-    </div>
-
-    <!-- Voiceover -->
-    <div class="p-6 bg-white rounded-2xl border text-center">
-      <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
-        <i class="fa-solid fa-microphone-lines"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-4">Voiceover</h3>
-      <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Commercial & Explainer</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Natural Delivery</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Recorded In-house</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Mixing & Tone Matching</span>
-      </div>
-      <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-        Professional, grounded narration that supports your story and blends seamlessly into visual work.
-      </p>
-    </div>
-
-    <!-- Event Coverage -->
-    <div class="p-6 bg-white rounded-2xl border text-center">
-      <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
-        <i class="fa-solid fa-broadcast-tower"></i>
-      </div>
-      <h3 class="font-semibold text-lg mb-4">Event Coverage</h3>
-      <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Weddings & Proposals</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Small Gatherings</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Simple Livestream Setup</span>
-        <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Highlights or Full Length</span>
-      </div>
-      <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
-        For personal milestones and community moments captured with care and delivered with timeless simplicity.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- CTA Section -->
-<section class="max-w-5xl mx-auto px-4 py-10 text-center">
-  <h2 class="text-3xl font-semibold mb-3">Ready to bring your story to life?</h2>
-  <p class="text-neutral-600 max-w-2xl mx-auto">
-    Whether it’s a single campaign or an ongoing content rhythm, I help you translate ideas into stories that people remember.
-  </p>
-  <div class="mt-6 flex justify-center gap-4">
-    <a href="/contact/" class="px-5 py-3 rounded-xl text-white"
-       style="background:linear-gradient(90deg,#1db6f2,#1ba1bf);">
-       Get in touch
-    </a>
-    <a href="/portfolio/" class="px-5 py-3 border rounded-xl">
-       View portfolio
-    </a>
-  </div>
-</section>
-
-<!-- Newsletter CTA -->
-<section class="max-w-6xl mx-auto px-4 py-10">
-  <div class="p-6 md:p-8 rounded-2xl text-white" style="background:linear-gradient(90deg,#1db6f2,#1ba1bf)">
-    <div class="md:flex items-center justify-between gap-6">
-      <div>
-        <h2 class="text-2xl font-semibold flex items-center gap-2">
-          <i class="fa-regular fa-newspaper"></i> Creator’s Current — Newsletter
-        </h2>
-        <p class="mt-2 text-white/90 text-[15px] max-w-2xl">
-          Notes on creative work, structure, and staying consistent without losing curiosity.
+      <!-- Video Production -->
+      <div class="p-6 bg-white rounded-2xl border text-center card reveal">
+        <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
+          <i class="fa-solid fa-video"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-4">Video Production</h3>
+        <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Brand & Campaign Films</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Short-form Videos</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Full Production Workflow</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Clarity & Visual Balance</span>
+        </div>
+        <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
+          End-to-end production for brands, campaigns, and creative projects that look polished yet feel authentic.
         </p>
       </div>
-      <div class="mt-4 md:mt-0">
-        <a class="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-3 rounded-xl"
-           href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
-           target="_blank" rel="noopener">
-          <i class="fa-regular fa-newspaper"></i> Read on LinkedIn
-        </a>
+
+      <!-- Voiceover -->
+      <div class="p-6 bg-white rounded-2xl border text-center card reveal">
+        <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
+          <i class="fa-solid fa-microphone-lines"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-4">Voiceover</h3>
+        <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Commercial & Explainer</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Natural Delivery</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Recorded In-house</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Mixing & Tone Matching</span>
+        </div>
+        <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
+          Professional, grounded narration that supports your story and blends seamlessly into visual work.
+        </p>
+      </div>
+
+      <!-- Event Coverage -->
+      <div class="p-6 bg-white rounded-2xl border text-center card reveal">
+        <div class="text-3xl mb-3 text-[#1db6f2] flex justify-center">
+          <i class="fa-solid fa-broadcast-tower"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-4">Event Coverage</h3>
+        <div class="flex flex-wrap justify-center gap-2 text-[14px] text-[#138cab]">
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Weddings & Proposals</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Small Gatherings</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Simple Livestream Setup</span>
+          <span class="bg-[#f4fbfd] px-3 py-1 rounded-full">Highlights or Full Length</span>
+        </div>
+        <p class="mt-4 text-[15px] text-neutral-600 leading-relaxed">
+          For personal milestones and community moments captured with care and delivered with timeless simplicity.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="max-w-5xl mx-auto px-4 py-10 text-center reveal">
+    <h2 class="text-3xl font-semibold mb-3">Ready to bring your story to life?</h2>
+    <p class="text-neutral-600 max-w-2xl mx-auto">
+      Whether it’s a single campaign or an ongoing content rhythm, I help you translate ideas into stories that people
+      remember.
+    </p>
+    <div class="mt-6 flex justify-center gap-4">
+      <a href="/contact/" class="px-5 py-3 border rounded-xl btn-outline">
+        Get in touch
+      </a>
+      <a href="/portfolio/" class="px-5 py-3 border rounded-xl btn-outline">
+        View portfolio
+      </a>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="max-w-6xl mx-auto px-4 py-10 reveal">
+    <div class="p-6 md:p-8 rounded-2xl text-white card" style="background:linear-gradient(90deg,#1db6f2,#1ba1bf)">
+      <div class="md:flex items-center justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+            <i class="fa-regular fa-newspaper"></i> Creator’s Current — Newsletter
+          </h2>
+          <p class="mt-2 text-white/90 text-[15px] max-w-2xl">
+            Notes on creative work, structure, and staying consistent without losing curiosity.
+          </p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          <a class="inline-flex items-center gap-2 bg-white text-neutral-900 px-5 py-3 rounded-xl"
+            href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7326273219773030402"
+            target="_blank" rel="noopener">
+            <i class="fa-regular fa-newspaper"></i> Read on LinkedIn
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Footer -->
-<footer class="border-t mt-12">
-  <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
-    <div class="flex justify-center mb-4">
-      <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
+  <!-- Footer -->
+  <footer class="border-t mt-12">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
+      <div class="flex justify-center mb-4">
+        <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-6 w-auto">
+      </div>
+      <p class="mb-4">
+        © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved.
+      </p>
+      <div class="flex justify-center gap-5 mb-4 text-lg">
+        <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram"
+          class="hover:text-pink-600">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn"
+          class="hover:text-sky-700">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+      </div>
+      <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
     </div>
-    <p class="mb-4">
-      © <span id="year"></span> Velton Gooden Jr. - Digital Content Creation. All rights reserved.
-    </p>
-    <div class="flex justify-center gap-5 mb-4 text-lg">
-      <a href="https://www.instagram.com/veltongoodenjr" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-pink-600">
-        <i class="fa-brands fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/veltongoodenjr" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-sky-700">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
-    </div>
-    <a href="#" class="text-[13px] underline hover:text-neutral-700">Back to top</a>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 
 </body>
+
 </html>

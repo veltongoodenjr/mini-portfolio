@@ -265,7 +265,7 @@
             </div>
             <div>
               <label for="phone" class="label">Phone</label>
-              <input class="field" type="tel" id="phone" name="phone" inputmode="tel" placeholder="123-4567">
+              <input class="field" type="tel" id="phone" name="phone" inputmode="tel" placeholder="+1 876-123-4567">
               <div class="mt-2 flex items-center gap-2">
                 <input id="whatsapp" name="whatsapp" type="checkbox" class="w-4 h-4 rounded border-gray-300">
                 <label for="whatsapp" class="text-[14px] text-neutral-700">This is a WhatsApp number</label>
@@ -273,41 +273,58 @@
             </div>
           </div>
 
-          <!-- What do you need -->
-          <div class="grid md:grid-cols-2 gap-4">
-            <div>
-              <label for="service" class="label">What do you need?</label>
-              <select id="service" name="service" class="field" required>
-                <option value="">Select</option>
-                <option>Video production</option>
-                <option>Voiceover</option>
-                <option>Event coverage</option>
-                <option>Not sure yet</option>
-              </select>
+          <!-- What do you need (multi-select) -->
+          <div>
+            <label class="label block mb-2">What do you need? <span class="text-[13px] text-neutral-500">(select all
+                that apply)</span></label>
+
+            <div id="servicesGroup" class="grid sm:grid-cols-2 gap-2">
+              <label
+                class="inline-flex items-center gap-2 border rounded-lg px-3 py-2 cursor-pointer hover:bg-neutral-50">
+                <input type="checkbox" name="services" value="Video production" class="w-4 h-4">
+                <span class="text-[14px]">Video production</span>
+              </label>
+
+              <label
+                class="inline-flex items-center gap-2 border rounded-lg px-3 py-2 cursor-pointer hover:bg-neutral-50">
+                <input type="checkbox" name="services" value="Voiceover" class="w-4 h-4">
+                <span class="text-[14px]">Voiceover</span>
+              </label>
+
+              <label
+                class="inline-flex items-center gap-2 border rounded-lg px-3 py-2 cursor-pointer hover:bg-neutral-50">
+                <input type="checkbox" name="services" value="Event coverage" class="w-4 h-4">
+                <span class="text-[14px]">Event coverage</span>
+              </label>
+
+              <label
+                class="inline-flex items-center gap-2 border rounded-lg px-3 py-2 cursor-pointer hover:bg-neutral-50">
+                <input type="checkbox" name="services" value="Other digital media services (via partner)"
+                  class="w-4 h-4">
+                <span class="text-[14px]">Other services</span>
+              </label>
             </div>
-            <div>
-              <label for="timeline" class="label">Timeline</label>
-              <select id="timeline" name="timeline" class="field">
-                <option>Flexible</option>
-                <option>ASAP</option>
-                <option>2–4 weeks</option>
-                <option>1–2 months</option>
-              </select>
+
+            <div class="hint mt-2">
+              Photography, graphic design, social media management, web design and more are available through our
+              trusted
+              partners.
             </div>
           </div>
+
 
           <!-- Message -->
           <div>
             <label for="message" class="label">Project notes</label>
-            <textarea class="field" id="message" name="message" rows="6" placeholder="Goals, audience, links, examples…"
+            <textarea class="field" id="message" name="message" rows="6" placeholder="Goals, audience, further details…"
               required></textarea>
           </div>
 
           <!-- Links -->
           <div>
-            <label for="links" class="label">Links (optional)</label>
+            <label for="links" class="label">Link (optional)</label>
             <input class="field" type="url" id="links" name="links" placeholder="https://">
-            <div class="hint">Drive, Dropbox, socials, references.</div>
+            <div class="hint">Drive, Dropbox, social, references etc.</div>
           </div>
 
           <!-- Hidden bits (optional metadata) -->
@@ -342,7 +359,7 @@
         <div class="card p-6 md:p-7" id="directCard">
           <h3 class="text-lg font-semibold">Direct</h3>
           <p class="text-[15px] text-neutral-700 mt-2">
-            Quick check before showing email and phone.
+            Quick check before showing you our email and phone number.
           </p>
 
           <!-- Human check -->
@@ -592,71 +609,82 @@
     });
   </script>
 
-<script>
-// === CONFIG: paste your live values ===
-const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyu5Otef4JZ0riM3qM2yAvUPBVydn8zEQWYiF_GZub70-Yy4QV0qv_ZJCedaMnGbULiag/exec";
-const API_SECRET   = "vGjR_2025_s3cr3t_1ba1bf";
+  <script>
+    // === CONFIG: paste your live values ===
+    const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbyu5Otef4JZ0riM3qM2yAvUPBVydn8zEQWYiF_GZub70-Yy4QV0qv_ZJCedaMnGbULiag/exec";
+    const API_SECRET = "vGjR_2025_s3cr3t_1ba1bf";
 
-(function(){
-  const form = document.getElementById('inquiryForm');
-  const btn  = document.getElementById('inquirySubmit');
-  const msg  = document.getElementById('formMsg');
-  if (!form) return;
+    (function () {
+      const form = document.getElementById('inquiryForm');
+      const btn = document.getElementById('inquirySubmit');
+      const msg = document.getElementById('formMsg');
+      if (!form) return;
 
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    // Honeypot
-    const hp = form.querySelector('[name="_gotcha"]');
-    if (hp && hp.value) return;
+        // Honeypot
+        const hp = form.querySelector('[name="_gotcha"]');
+        if (hp && hp.value) return;
 
-    // Basic guards
-    if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) return;
-    const consentEl = document.getElementById('consent');
-    if (consentEl && !consentEl.checked) return;
+        // Collect selected services
+        const selected = Array.from(form.querySelectorAll('input[name="services"]:checked'))
+          .map(el => el.value);
 
-    const payload = {
-      name:     form.name.value.trim(),
-      email:    form.email.value.trim(),
-      phone:    form.phone.value.trim(),
-      whatsapp: form.whatsapp.checked ? '1' : '',
-      service:  form.service.value,
-      timeline: form.timeline.value,
-      message:  form.message.value.trim(),
-      links:    form.links.value.trim(),
-      source:   form.querySelector('[name="source"]')?.value || 'Website Contact',
-      subject:  form.querySelector('[name="subject"]')?.value || 'New inquiry via veltongoodenjr.com',
-      page:     location.href,             // context: coming from Contact page
-      _secret:  API_SECRET
-    };
+        // Basic guards
+        if (!form.name.value.trim() || !form.email.value.trim() || !form.message.value.trim()) return;
+        if (selected.length === 0) {
+          if (msg) { msg.textContent = 'Please select at least one service.'; msg.style.color = '#7f1d1d'; }
+          return;
+        }
+        const consentEl = document.getElementById('consent');
+        if (consentEl && !consentEl.checked) return;
 
-    // UI: loading
-    if (btn){ btn.disabled = true; btn.classList.add('is-loading'); }
-    if (msg){ msg.textContent=''; }
+        const viaPartner = selected.includes('Other services') ? '1' : '';
 
-    try {
-      // IMPORTANT: URL-encoded "simple request" to avoid CORS preflight
-      const res = await fetch(GAS_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8' },
-        body: new URLSearchParams(payload).toString()
+        // Build URL-encoded body (append repeated "services" keys)
+        const params = new URLSearchParams();
+        params.append('name', form.name.value.trim());
+        params.append('email', form.email.value.trim());
+        params.append('phone', form.phone.value.trim());
+        params.append('whatsapp', form.whatsapp.checked ? '1' : '');
+        selected.forEach(s => params.append('services', s)); // <-- multiple keys
+        params.append('timeline', form.timeline ? form.timeline.value : '');
+        params.append('message', form.message.value.trim());
+        params.append('links', form.links.value.trim());
+        params.append('source', form.querySelector('[name="source"]')?.value || 'Website Contact');
+        params.append('subject', form.querySelector('[name="subject"]')?.value || 'New inquiry via veltongoodenjr.com');
+        params.append('page', location.href);
+        params.append('viaPartner', viaPartner);
+        params.append('_secret', API_SECRET);
+
+        // UI: loading
+        if (btn) { btn.disabled = true; btn.classList.add('is-loading'); }
+        if (msg) { msg.textContent = ''; }
+
+        try {
+          const res = await fetch(GAS_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: params.toString()
+          });
+          const data = await res.json().catch(() => ({}));
+
+          if (res.ok && data.ok) {
+            form.reset();
+            if (msg) { msg.textContent = 'Thanks! Your message has been sent.'; msg.style.color = '#065f46'; }
+          } else {
+            if (msg) { msg.textContent = data?.error ? `Error: ${data.error}` : 'Sorry, there was a problem. Please try again.'; msg.style.color = '#7f1d1d'; }
+          }
+        } catch (err) {
+          if (msg) { msg.textContent = 'Network error. Please try again.'; msg.style.color = '#7f1d1d'; }
+        } finally {
+          if (btn) { btn.disabled = false; btn.classList.remove('is-loading'); }
+        }
       });
-      const data = await res.json().catch(()=> ({}));
-
-      if (res.ok && data.ok) {
-        form.reset();
-        if (msg){ msg.textContent = 'Thanks — your message has been sent.'; msg.style.color = '#065f46'; }
-      } else {
-        if (msg){ msg.textContent = data?.error ? `Error: ${data.error}` : 'Sorry, there was a problem. Please try again.'; msg.style.color = '#7f1d1d'; }
-      }
-    } catch (err) {
-      if (msg){ msg.textContent = 'Network error. Please try again.'; msg.style.color = '#7f1d1d'; }
-    } finally {
-      if (btn){ btn.disabled = false; btn.classList.remove('is-loading'); }
-    }
-  });
-})();
-</script>
+    })();
+  </script>
 
 </body>
+
 </html>
