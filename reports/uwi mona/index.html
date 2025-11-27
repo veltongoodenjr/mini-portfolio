@@ -80,7 +80,7 @@
       }
     }
 
-    /* Horizontal scroll for nav pills on mobile */
+    /* Horizontal scroll for nav pills on desktop strip (if needed) */
     .nav-scroll {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -99,6 +99,10 @@
         color 150ms ease,
         transform 150ms ease,
         box-shadow 150ms ease;
+    }
+
+    .section-pill {
+      border-radius: 9999px;
     }
 
     /* Disable hover animation on mobile (only apply on md and up) */
@@ -125,10 +129,6 @@
       }
     }
 
-    .section-pill {
-      border-radius: 9999px;
-    }
-
     .metrics-table th,
     .metrics-table td {
       font-size: 12px;
@@ -148,25 +148,37 @@
 
   <!-- Dashboard header + client-friendly nav -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <img src="assets/images/brand/UWI Mona Logo.png" alt="UWI Mona logo"
-          class="h-11 w-auto object-contain" loading="eager">
-        <div class="text-xs md:text-sm text-neutral-700 leading-snug">
-          <p class="font-semibold text-neutral-900">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <!-- Left: logo + title -->
+      <div class="flex items-center gap-3 min-w-0">
+        <img src="assets/images/brand/UWI Mona Logo.png" alt="Velton Gooden Jr logo" class="h-11 w-auto object-contain"
+          loading="eager">
+        <div class="text-xs md:text-sm text-neutral-700 leading-snug truncate">
+          <p class="font-semibold text-neutral-900 truncate">
             UWI Mona · Social Media Outcomes Dashboard
           </p>
-          <p>Prepared by Velton Gooden Jr – Digital Content Creation</p>
+          <p class="hidden sm:block truncate">Prepared by Velton Gooden Jr – Digital Content Creation</p>
         </div>
       </div>
-      <div class="text-right text-[11px] md:text-xs text-neutral-600 leading-snug">
-        <p><span class="font-semibold">Review window:</span> July – October 2025</p>
-        <p><span class="font-semibold">Managed & billed period:</span> September – October 2025 (2 months)</p>
+
+      <!-- Right: dates (hidden on very small screens) + mobile toggle -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:block text-right text-[11px] md:text-xs text-neutral-600 leading-snug">
+          <p><span class="font-semibold">Review window:</span> July – October 2025</p>
+          <p><span class="font-semibold">Managed & billed period:</span> September – October 2025 (2 months)</p>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobileNavToggle"
+          class="inline-flex md:hidden items-center justify-center w-9 h-9 rounded-lg border border-neutral-200 bg-white shadow-sm text-neutral-800"
+          aria-label="Open navigation" aria-expanded="false">
+          <i class="fa-solid fa-bars text-sm"></i>
+        </button>
       </div>
     </div>
 
-    <!-- Section navigation -->
-    <nav class="border-t bg-neutral-50">
+    <!-- Desktop section navigation -->
+    <nav class="border-t bg-neutral-50 hidden md:block">
       <div
         class="max-w-6xl mx-auto px-4 py-3 nav-scroll flex flex-nowrap md:flex-wrap gap-2 text-[11px] md:text-[13px]">
         <a href="#executive-summary"
@@ -199,6 +211,40 @@
         </a>
       </div>
     </nav>
+
+    <!-- Mobile section navigation (dropdown) -->
+    <nav id="mobileNav" class="md:hidden bg-neutral-50 border-t hidden">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-2 text-[13px]">
+        <a href="#executive-summary" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-sky-200 bg-sky-50 text-sky-700 inline-flex items-center gap-2">
+          <i class="fa-solid fa-file-lines text-xs"></i> Executive summary
+        </a>
+        <a href="#overview" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-neutral-200 bg-white text-neutral-800 inline-flex items-center gap-2">
+          <i class="fa-solid fa-gauge-high text-xs"></i> Overview
+        </a>
+        <a href="#content-performance" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-neutral-200 bg-white text-neutral-800 inline-flex items-center gap-2">
+          <i class="fa-solid fa-chart-column text-xs"></i> Content performance
+        </a>
+        <a href="#paid-cadence" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-neutral-200 bg-white text-neutral-800 inline-flex items-center gap-2">
+          <i class="fa-solid fa-bullseye text-xs"></i> Paid & cadence
+        </a>
+        <a href="#key-metrics" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-neutral-200 bg-white text-neutral-800 inline-flex items-center gap-2">
+          <i class="fa-solid fa-table-list text-xs"></i> Key metrics
+        </a>
+        <a href="#highlights-risks" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-neutral-200 bg-white text-neutral-800 inline-flex items-center gap-2">
+          <i class="fa-solid fa-scale-balanced text-xs"></i> Highlights & risks
+        </a>
+        <a href="#methodology" data-mobile-nav-link
+          class="nav-pill section-pill px-3 py-2 border border-neutral-200 bg-white text-neutral-800 inline-flex items-center gap-2">
+          <i class="fa-regular fa-circle-question text-xs"></i> Methodology
+        </a>
+      </div>
+    </nav>
   </header>
 
   <!-- Hero + summary shell -->
@@ -206,16 +252,16 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
-    <div class="max-w-6xl mx-auto px-4 py-14 md:py-18 text-white">
-      <div class="flex flex-wrap items-start justify-between gap-6">
-        <div class="max-w-3xl">
-          <p class="uppercase tracking-[0.18em] text-xs md:text-[13px] text-white/80 mb-3">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-14 text-white">
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+        <div class="max-w-3xl space-y-3">
+          <p class="uppercase tracking-[0.18em] text-xs md:text-[13px] text-white/80">
             UWI Mona · Instagram & Facebook
           </p>
-          <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-3">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
             Social Media Outcomes Dashboard
           </h1>
-          <p class="text-white/90 text-[14px] md:text-[16px]">
+          <p class="text-white/90 text-[13px] sm:text-[14px] md:text-[16px]">
             A high-level view of how students and prospects responded to UWI Mona’s social media activity between
             <span class="font-semibold">July and October 2025</span>, with a deeper focus on the
             <span class="font-semibold">two months of managed, billed work (September–October).</span>
@@ -223,8 +269,8 @@
         </div>
 
         <div
-          class="bg-white/10 backdrop-blur rounded-2xl border border-white/20 px-4 py-3 text-[12px] md:text-[13px] w-full sm:w-auto">
-          <p class="uppercase tracking-[0.18em] text-[11px] text-white/70 mb-2">
+          class="bg-white/10 backdrop-blur rounded-2xl border border-white/20 px-4 py-3 text-[12px] sm:text-[13px] w-full lg:w-[360px]">
+          <p class="uppercase tracking-[0.18em] text-[10px] sm:text-[11px] text-white/70 mb-2">
             Context
           </p>
           <p class="mb-1">
@@ -309,7 +355,7 @@
             <i class="fa-solid fa-arrow-trend-up text-emerald-500"></i>Top outcome headlines
           </p>
           <ul class="list-disc ps-5 space-y-1">
-            <li>Students reliably engage when content is timely, clear and focused on their real decisions.</li>
+            <li>Students reliably engage when content is timely, student-centred and clearly written.</li>
             <li>The channels are being used as reference points for orientation, deadlines and critical updates.</li>
             <li>Within the billed period, paid efficiency improved sharply while organic trust remained high.</li>
           </ul>
@@ -481,7 +527,7 @@
           <p class="text-[11px] uppercase tracking-[0.18em] text-neutral-500 mb-2">
             Engagement quality by month (directional)
           </p>
-          <div class="grid grid-cols-3 gap-3 text-[11px]">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-[11px]">
             <div class="border rounded-xl px-3 py-2 bg-neutral-50 flex flex-col items-start gap-1">
               <span class="font-semibold text-neutral-800 flex items-center gap-1">
                 <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>July
@@ -510,12 +556,11 @@
           <h3 class="text-[15px] md:text-[16px] font-semibold">
             <i class="fa-solid fa-layer-group me-2 text-sky-500"></i>Formats and themes that work
           </h3>
-          <span class="text-[11px] text-neutral-500">Managed months · Sep–Oct</span>
         </div>
 
         <!-- Simple stacked bar representation -->
         <p class="text-[11px] uppercase tracking-[0.18em] text-neutral-500 mb-2">
-          Approximate mix by content type
+          Approximate mix by content type · Sep–Oct
         </p>
         <div class="w-full h-3 rounded-full bg-neutral-100 overflow-hidden mb-3 flex">
           <div class="h-full bg-sky-400" style="width:50%;" title="Video"></div>
@@ -642,10 +687,8 @@
               Instagram (organic)
             </p>
             <ul class="list-disc ps-5 space-y-1">
-              <li>Maintain a baseline of <span class="font-semibold">12–16 posts per month</span> in teaching periods.
-              </li>
-              <li>Anchor content to key academic dates: application windows, orientation, exam periods and graduation.
-              </li>
+              <li>Maintain a baseline of <span class="font-semibold">12–16 posts per month</span> in teaching periods.</li>
+              <li>Anchor content to key academic dates: application windows, orientation, exam periods and graduation.</li>
               <li>Pair each milestone with both a story-driven piece (video) and a clarity-driven piece (carousel).</li>
             </ul>
           </div>
@@ -855,7 +898,7 @@
   <footer class="border-t mt-12">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-neutral-500 text-center">
       <div class="flex justify-center mb-4">
-        <img src="assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-11 w-auto">
+        <img src="/assets/images/brand/logo.svg" alt="Velton Gooden Jr logo" class="h-11 w-auto">
       </div>
       <p class="mb-4">
         © <span id="year"></span> Velton Gooden Jr. – Digital Content Creation. All rights reserved.
@@ -868,6 +911,34 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const mobileNavToggle = document.getElementById('mobileNavToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (mobileNavToggle && mobileNav) {
+      mobileNavToggle.addEventListener('click', () => {
+        const isHidden = mobileNav.classList.contains('hidden');
+        if (isHidden) {
+          mobileNav.classList.remove('hidden');
+          mobileNavToggle.setAttribute('aria-expanded', 'true');
+          mobileNavToggle.innerHTML = '<i class="fa-solid fa-xmark text-sm"></i>';
+        } else {
+          mobileNav.classList.add('hidden');
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+          mobileNavToggle.innerHTML = '<i class="fa-solid fa-bars text-sm"></i>';
+        }
+      });
+
+      // Close mobile nav when a link is clicked
+      document.querySelectorAll('[data-mobile-nav-link]').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.add('hidden');
+          mobileNavToggle.setAttribute('aria-expanded', 'false');
+          mobileNavToggle.innerHTML = '<i class="fa-solid fa-bars text-sm"></i>';
+        });
+      });
+    }
   </script>
 
 </body>
